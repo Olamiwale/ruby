@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/app/lib/api/api.js";
-import { useAuth } from "@/components/auth/AuthContext";
+import { useAuth } from "@/app/features/auth/AuthContext";
 
 const passwordRules = [
   { regex: /.{8,}/, message: "At least 8 characters" },

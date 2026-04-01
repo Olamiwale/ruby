@@ -1,12 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import api from "@/app/lib/api/api.js";
 import { useAuth } from "@/app/features/auth/AuthContext";
 import { RootState } from "@/app/lib/redux/store";
+
+interface CartItem {
+  id: string;
+  name: string;
+  price: number | string;
+  quantity: number;
+  size?: string;
+  color?: string;
+  images?: string[];
+}
 
 export default function Checkout() {
   const router = useRouter();
@@ -19,7 +28,7 @@ export default function Checkout() {
 
   // Parse price as number strictly — cart items may store price as string
   const totalAmount = cartItems.reduce(
-    (sum: number, item: any) => sum + item.price * item.quantity,
+    (sum: number, item: CartItem) => sum + (typeof item.price === 'string' ? parseInt(item.price, 10) : item.price) * item.quantity,
     0
   );
 
@@ -48,7 +57,7 @@ export default function Checkout() {
           metadata: {
   itemCount: String(cartItems.length),
   totalAmount: String(totalAmount),
-  items: JSON.stringify(cartItems.map((item: any) => ({
+  items: JSON.stringify(cartItems.map((item: CartItem) => ({
     id: item.id,
     name: item.name,
     quantity: item.quantity,
@@ -70,13 +79,12 @@ export default function Checkout() {
       }
 
       window.location.href = paystackUrl;
-    } catch (err: any) {
-      // Log full error in dev to help debug
-      console.error("Payment error:", err.response?.data);
-      const message =
-        err.response?.data?.message ||
-        err.response?.data?.errors?.[0]?.message ||
-        "Payment initiation failed. Please try again.";
+    } catch (err: unknown) {
+      let message = "Payment initiation failed. Please try again.";
+      if (err instanceof Error) {
+        console.error("Payment error:", err.message);
+        message = err.message;
+      }
       setServerError(message);
     } finally {
       setLoading(false);

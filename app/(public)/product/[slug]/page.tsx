@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import slugify from "../../../lib/utils/slugify";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../../lib/redux/actions";
 import Data from "@/app/data/products.json";
 import MoreProducts from "@/app/features/products/MoreProducts";
+import Image from "next/image";
 
 interface Product {
   id: string;
@@ -18,7 +19,7 @@ interface Product {
   color?: string[];
   col?: string;
   description?: string;
-  details?: any[];
+  details?: Record<string, unknown>[];
   category: string;
 }
 
@@ -32,22 +33,16 @@ export default function ProductDetailsPage() {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setColor] = useState("");
 
-  // set default color once product is loaded
-  useEffect(() => {
-    if (product) {
-      const colors = product.color || (product.col ? [product.col] : []);
-      if (colors.length && !selectedColor) {
-        setColor(colors[0]);
-      }
-    }
-  }, [product, selectedColor]);
-
   //fetching the products
   useEffect(() => {
     const product = Data.find((item) => slugify(item.name) === slug);
     if (product) {
       setProduct(product);
       setMainImage(product.images[0]);
+      const colors = product.color || (product.col ? [product.col] : []);
+      if (colors.length) {
+        setColor(colors[0]);
+      }
     }
   }, [slug]);
 
@@ -83,17 +78,21 @@ export default function ProductDetailsPage() {
       <div className="flex md:flex-row flex-col gap-8 max-w-6xl mx-auto px-4 mb-12">
         {/* Left - Image Gallery */}
         <div className="md:w-1/2 flex flex-col gap-3">
-          <img
+          <Image
             src={mainImage}
             alt={product.name}
+            width={500}
+            height={400}
             className="w-full rounded-lg object-cover h-96"
           />
           <div className="flex gap-2">
             {product.images.map((img, i) => (
-              <img
+              <Image
                 key={i}
                 src={img}
                 alt={`thumb-${i}`}
+                width={80}
+                height={80}
                 onClick={() => setMainImage(img)}
                 className="w-20 h-20 rounded cursor-pointer border-2 border-gray-300 hover:border-black"
               />

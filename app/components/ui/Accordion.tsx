@@ -29,7 +29,7 @@ const Accordion = () => {
             }`}
           >
             <div className="p-4 tracking-wide bg-white">
-              <p>Welcome to <strong> mapbyruby </strong>where elegance meets innovation, where every piece you wear tells a story of sophistication and grace.Whether you're striding down the runway or making a grand entrance at an event, our collection is designed to turn heads and leave a lasting impression. </p>
+              <p>Welcome to <strong> mapbyruby </strong>where elegance meets innovation, where every piece you wear tells a story of sophistication and grace.Whether you&apos;re striding down the runway or making a grand entrance at an event, our collection is designed to turn heads and leave a lasting impression. </p>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import Data from "../../data/collection.json";
 
 
@@ -64,11 +65,12 @@ export default function VideoPlayer() {
   <div className="flex gap-4 p-4 overflow-x-auto scroll-smooth no-scrollbar">
     {Data.map((items, i) => (
       <div key={i} className="flex-shrink-0">
-        <img
+        <Image
           src={items.image}
+          width={300}
+          height={300}
           className="w-[300px] h-[300px] object-cover"
           alt="img"
-          loading="lazy"
         />
       </div>
     ))}

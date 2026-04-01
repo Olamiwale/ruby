@@ -8,6 +8,16 @@ import { useAuth } from "@/app/features/auth/AuthContext";
 import { FaTrashCan } from "react-icons/fa6";
 import { RootState } from "@/app/lib/redux/store";
 
+interface CartItem {
+  id: string;
+  name: string;
+  price: number | string;
+  quantity: number;
+  size?: string;
+  color?: string;
+  images: string[];
+}
+
 export default function Cart() {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   const dispatch = useDispatch();
@@ -34,7 +44,7 @@ export default function Cart() {
       </div>
 
       <div className="max-w-[800px] m-auto space-y-5">
-        {cartItems.map((item: any) => (
+        {cartItems.map((item: CartItem) => (
           <div key={item.id} className="bg-white shadow-lg rounded-md p-4 flex justify-between items-center">
             <Image src={item.images[1]} width={100} height={120} className="md:w-[100px] w-16 md:h-[120px] rounded-md" alt={item.name} />
 

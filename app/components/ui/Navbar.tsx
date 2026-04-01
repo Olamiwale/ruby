@@ -27,7 +27,7 @@ export default function Navbar() {
   const nav = () => setToggle(!toggle);
 
   useEffect(() => {
-    setMounted(true); // eslint-disable-line react-hooks/exhaustive-deps
+    setMounted(true);
   }, []);
 
   async function handleSignOut() {

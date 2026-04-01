@@ -5,15 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Data from "@/app/data/products.json";
 import slugify from "../../lib/utils/slugify";
-//import { useNavigate } from "react-router-dom";
-import { useRouter } from "next/navigation";
 
 export default function Product() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCategory, setFilteredCategory] = useState("");
-
-
-  const router = useRouter();
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);

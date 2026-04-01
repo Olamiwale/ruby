@@ -10,7 +10,7 @@ interface Product {
   name: string;
   images: string[];
   price: string | number;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 function getRandomItems(arr: Product[], num: number): Product[] {

@@ -18,7 +18,7 @@ interface Product {
   images: string[];
   color?: string[];
   col?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default function ProductDetails() {
@@ -43,7 +43,7 @@ export default function ProductDetails() {
 
   // Update mainImage when product changes
   useEffect(() => {
-    if (product) setMainImage(product.images[0]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (product) setMainImage(product.images[0]);
   }, [product?.id]);
 
 
@@ -234,7 +234,7 @@ export default function ProductDetails() {
                 href="tel:+2347033821612"
                 className="p-3 bg-yellow-900 hover:bg-yellow-600 rounded-md w-full flex items-center space-x-5 justify-center"
               >
-                <img src="/phoneImg.webp" className="w-4" alt="phone" />
+                <Image src="/phoneImg.webp" width={16} height={16} className="w-4" alt="phone" />
                 <p className="tracking-widest font-medium text-white text-sm">
                   Call to order
                   <span className="tracking-widest ml-3 font-bold">+234 707 297 1284</span>

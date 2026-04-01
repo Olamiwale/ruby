@@ -1,26 +1,46 @@
+"use client";
+
 import { useState, useEffect } from "react";
-
 import { useParams } from "next/navigation";
-import slugify from "../utils/slugify";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/actions";
+import slugify from "@/app/lib/utils/slugify";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/app/lib/redux/actions";
+import Data from "@/app/data/products.json";
+import MoreProducts from "@/app/features/products/MoreProducts";
+import Accordion from "@/app/components/ui/Accordion";
 
-import Data from "../products.json";
-import MoreProducts from "./MoreProducts";
-import Accordion from "../components/Accordion";
+interface Product {
+  id: string;
+  name: string;
+  price: string | number;
+  images: string[];
+  color?: string[];
+  col?: string;
+  [key: string]: any;
+}
 
 export default function ProductDetails() {
-  const { slug } = useParams();
-  const [product, setProduct] = useState(null);
-  const [mainImage, setMainImage] = useState("");
+  const params = useParams();
+  const slug = params?.slug as string;
+
+  const [product, setProduct] = useState<Product | null>(null);
+  const [mainImage, setMainImage] = useState<string>("");
+  const [selectedSize, setSelectedSize] = useState<string>("");
+  const [quantity, setQuantity] = useState<number>(1);
+  const [selectedColor, setColor] = useState<string>("");
+
   const dispatch = useDispatch();
 
-  
-  const [selectedSize, setSelectedSize] = useState("");
-  const [quantity, setQuantity] = useState(1);
-  const [selectedColor, setColor] = useState("");
+  // Fetch product by slug
+  useEffect(() => {
+    const found = (Data as Product[]).find((item) => slugify(item.name) === slug);
+    if (found) {
+      setProduct(found);
+      setMainImage(found.images[0]);
+    }
+  }, [slug]);
 
-  // set default color once product is loaded
+  // Set default color once product is loaded
   useEffect(() => {
     if (product) {
       const colors = product.color || (product.col ? [product.col] : []);
@@ -30,62 +50,46 @@ export default function ProductDetails() {
     }
   }, [product]);
 
-  //fetching the products
-  useEffect(() => {
-    const product = Data.find((item) => slugify(item.name) === slug);
-    if (product) {
-      setProduct(product);
-      setMainImage(product.images[0]);
-    }
-  }, [slug]);
-
-  if (!product) {
-    return <p>Product not found</p>;
-  }
-
-
-  //const cart = useSelector((state) => state.cart.items); // Fetch current cart items from Redux state
-
-  //add product to the cart
   const handleAddToCart = () => {
     if (!selectedSize) {
       alert("Please select a size");
       return;
     }
 
-    // ensure price is a number (strip commas if coming from JSON)
-    const numericPrice = Number(
-      product.price.toString().replace(/,/g, "")
-    );
+    const numericPrice = Number(product!.price.toString().replace(/,/g, ""));
 
     const cartItem = {
       ...product,
       price: numericPrice,
       size: selectedSize,
-      quantity: quantity,
+      quantity,
       color: selectedColor,
     };
 
     dispatch(addToCart(cartItem));
-
-    alert("add product to cart?");
+    alert("Product added to cart!");
   };
+
+  if (!product) {
+    return <p>Product not found</p>;
+  }
+
+  const colors: string[] = product.color || (product.col ? [product.col] : []);
 
   return (
     <div>
       <div className="p-8 mb-8 flex md:flex-row flex-col justify-between pt-[40px] gap-20">
         <div className="flex md:flex-row flex-col justify-evenly items-start md:w-1/2">
+
+          {/* Mobile title */}
           <div className="text-2xl space-y-3 md:hidden mb-10">
-            <h1 className="font-bold text-xl tracking-widest">
-              {product.name}
-            </h1>
-            <p className="text-xl tracking-widest leading-3">
-              ₦ {product.price}
-            </p>
+            <h1 className="font-bold text-xl tracking-widest">{product.name}</h1>
+            <p className="text-xl tracking-widest leading-3">₦ {product.price}</p>
           </div>
 
+          {/* Images */}
           <div className="md:ml-4 items-center flex-col-reverse md:flex-row flex justify-center">
-            <div className="flex md:flex-col gap-2 md:mr-5 w-fit justify-center mt-5 ">
+            <div className="flex md:flex-col gap-2 md:mr-5 w-fit justify-center mt-5">
               {product.images.map((image, index) => (
                 <img
                   key={index}
@@ -96,7 +100,6 @@ export default function ProductDetails() {
                 />
               ))}
             </div>
-
             <div>
               <img
                 src={mainImage}
@@ -108,21 +111,22 @@ export default function ProductDetails() {
         </div>
 
         {/* Product details */}
+        <div className="flex flex-1 flex-col gap-4 md:w-1/2">
 
-        <div className="flex flex-1 flex-col gap-4 md:w-1/2 ">
+          {/* Desktop title */}
           <div className="text-2xl space-y-3 md:flex flex-col hidden">
             <h1 className="md:text-3xl font-bold leading-[150%] tracking-[0.1em]">
               {product.name}
             </h1>
-
-            <p className="tracking-widest"> ₦ {product.price}.00</p>
+            <p className="tracking-widest">₦ {product.price}.00</p>
           </div>
 
-          <div className="md:mt-0 flex flex-col md:justify-center  md:items-start uppercase leading-5 md:w-full">
+          <div className="md:mt-0 flex flex-col md:justify-center md:items-start uppercase leading-5 md:w-full">
+
+            {/* Size selector */}
             <div className="w-full">
               <p className="underline py-4 font-bold">Available in size</p>
             </div>
-
             <ul className="flex gap-3">
               {["S", "M", "L", "XL", "2XL"].map((size) => (
                 <li
@@ -137,16 +141,15 @@ export default function ProductDetails() {
               ))}
             </ul>
 
-            {/*choosing color of the product */}
+            {/* Color selector */}
             <div className="w-full">
               <p className="underline mt-10 font-bold">Available in Colour:</p>
             </div>
-
             <ul className="flex gap-3 mt-5">
-              {(product.color || (product.col ? [product.col] : [])).map((color) => (
+              {colors.map((color) => (
                 <li
                   key={color}
-                  className={`cursor-pointer font-semibold uppercase border-[2px] border-black/40 py-2 text-center px-5  ${
+                  className={`cursor-pointer font-semibold uppercase border-[2px] border-black/40 py-2 text-center px-5 ${
                     selectedColor === color ? "bg-black text-white" : ""
                   }`}
                   onClick={() => setColor(color)}
@@ -156,46 +159,38 @@ export default function ProductDetails() {
               ))}
             </ul>
 
-
-
-           
-
-
-           
-
-
-
-
-
-
-
-            <div className=" flex flex-col">
-              <label className="py-4 text-sm font-bold underline">
-                Quantity
-              </label>
+            {/* Quantity */}
+            <div className="flex flex-col">
+              <label className="py-4 text-sm font-bold underline">Quantity</label>
               <input
                 type="number"
                 className="border-2 p-3"
+                min={1}
                 value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setQuantity(Math.max(1, Number(e.target.value)))
+                }
               />
             </div>
 
+            {/* Custom measurement */}
             <div className="mt-16 flex items-center mb-10">
               <a
                 href="https://wa.me/+2347072971284?text= Welcome to MapbyRuby. Where we value creativity, quality, and self-expression."
-                className=" text-white text-sm tracking-widest font-semibold px-5 p-3 bg-black hover:bg-black/90 rounded-full">
+                className="text-white text-sm tracking-widest font-semibold px-5 p-3 bg-black hover:bg-black/90 rounded-full"
+              >
                 Click here
               </a>
-
-              <p className="ml-2 font-semibold cursor-pointer text-sm tracking-widest ">
-                for custom measurement{" "}
+              <p className="ml-2 font-semibold cursor-pointer text-sm tracking-widest">
+                for custom measurement
               </p>
             </div>
 
+            {/* Add to cart */}
             <button
               className="mt-8 w-full hover:bg-black/90 transition-all duration-500 bg-black p-3 text-white font-bold uppercase"
-              onClick={handleAddToCart}  >
+              onClick={handleAddToCart}
+            >
               Add to cart
             </button>
           </div>
@@ -204,18 +199,15 @@ export default function ProductDetails() {
             <div className="bg-gray-100">
               <Accordion />
             </div>
-
             <div className="flex gap-2 justify-between mt-[40px] uppercase font-bold text-white">
               <a
                 href="tel:+2347033821612"
                 className="p-3 bg-yellow-900 hover:bg-yellow-600 rounded-md w-full flex items-center space-x-5 justify-center"
               >
-                <img src="/phoneImg.webp" className="w-4" />
+                <img src="/phoneImg.webp" className="w-4" alt="phone" />
                 <p className="tracking-widest font-medium text-white text-sm">
                   Call to order
-                  <span className="tracking-widest ml-3 font-bold">
-                    +234 707 297 1284
-                  </span>
+                  <span className="tracking-widest ml-3 font-bold">+234 707 297 1284</span>
                 </p>
               </a>
             </div>

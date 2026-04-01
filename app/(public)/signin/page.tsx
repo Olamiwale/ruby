@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/app/lib/api/api.js";
-import { useAuth } from "@/components/auth/AuthContext";
+import { useAuth } from "@/app/features/auth/AuthContext";
 
 function validateForm({ email, password }: { email: string; password: string }) {
   const errors: { email?: string; password?: string } = {};

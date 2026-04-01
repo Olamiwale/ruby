@@ -1,6 +1,8 @@
 "use client"
 
 import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import Data from "@/app/data/products.json";
 import slugify from "../../lib/utils/slugify";
 //import { useNavigate } from "react-router-dom";
@@ -13,7 +15,7 @@ export default function Product() {
 
   const router = useRouter();
 
-  const handleSearch = (event: any) => {
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
@@ -87,9 +89,9 @@ export default function Product() {
           filteredProducts.map((item) => (
             <div key={item.id} className="bg-gray-50 shadow-md p-2 mb-10 rounded-lg">
               
-              <a  href={`/product/${slugify(item.name)}`}>
-                <img src={item.images[0]}  alt={item.name} className="w-full h-[320px] object-cover mb-4 rounded" /> 
-              </a>
+              <Link href={`/product/${slugify(item.name)}`}>
+                <Image src={item.images[0]} width={320} height={320} alt={item.name} className="w-full h-[320px] object-cover mb-4 rounded" /> 
+              </Link>
              
               <h2 className="font-semibold tracking-widest pb-2">{item.name}</h2>
               <h2 className="pb-2 text-gray-400 text-sm">{item.description}</h2>

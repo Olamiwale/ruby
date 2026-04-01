@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import Data from "@/app/data/products.json";
 import slugify from "@/app/lib/utils/slugify";
 
@@ -16,11 +18,7 @@ function getRandomItems(arr: Product[], num: number): Product[] {
 }
 
 export default function MoreProduct() {
-  const [random, setRandom] = useState<Product[]>([]);
-
-  useEffect(() => {
-    setRandom(getRandomItems(Data as Product[], 3));
-  }, []);
+  const [random] = useState<Product[]>(() => getRandomItems(Data as Product[], 3));
 
   return (
     <div className="p-8 flex justify-center flex-col items-center">
@@ -32,12 +30,12 @@ export default function MoreProduct() {
       <div className="grid grid-cols-3 justify-between gap-4">
         {random.map((item, id) => (
           <div key={id} className="flex flex-col justify-center p-5">
-            <a
+            <Link
               className="h-[150px] md:w-full md:h-[300px]"
               href={`/product/${slugify(item.name)}`}
             >
-              <img src={item.images[1]} className="w-full h-full" alt={item.name} />
-            </a>
+              <Image src={item.images[1]} width={300} height={300} className="w-full h-full object-cover" alt={item.name} />
+            </Link>
             <p className="py-3 text-center text-[10px]">{item.name}</p>
           </div>
         ))}

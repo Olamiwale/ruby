@@ -40,7 +40,7 @@ export default function ForgotPassword() {
         </div>
         <h2 className="text-2xl font-semibold mb-2">Check your email</h2>
         <p className="text-gray-500 text-sm mb-6">
-          If an account with that email exists, we've sent a reset link. Check your inbox — it expires in 30 minutes.
+          If an account with that email exists, we&apos;ve sent a reset link. Check your inbox — it expires in 30 minutes.
         </p>
         <button
           onClick={() => router.push("/signin")}

@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import api from "@/app/lib/api/api.js";
 import { useAuth } from "@/app/features/auth/AuthContext";
+import { RootState } from "@/app/lib/redux/store";
 
 export default function Checkout() {
   const router = useRouter();
   const { accessToken } = useAuth();
-  const cartItems = useSelector((state: any) => state.cart.cartItems);
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   const [currency, setCurrency] = useState("NGN");
   const [serverError, setServerError] = useState("");
@@ -23,7 +25,7 @@ export default function Checkout() {
 
   
 
-  const handleSubmit = async (e: any) => {  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {  
     e.preventDefault();
     setServerError("");
 

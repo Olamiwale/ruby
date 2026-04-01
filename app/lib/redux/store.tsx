@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import cartReducer from './cartReducer'; 
+import cartReducer from './cartReducer';
 
 const rootReducer = combineReducers({
   cart: cartReducer,
@@ -7,4 +7,5 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
+export type RootState = ReturnType<typeof store.getState>;
 export default store;

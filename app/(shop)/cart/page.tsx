@@ -1,14 +1,15 @@
 "use client";
 
-
+import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { removeFromCart, increaseQuantity, decreaseQuantity } from "@/app/lib/redux/actions";
 import { useAuth } from "@/app/features/auth/AuthContext";
 import { FaTrashCan } from "react-icons/fa6";
+import { RootState } from "@/app/lib/redux/store";
 
 export default function Cart() {
-  const cartItems = useSelector((state: any) => state.cart.cartItems);
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   const dispatch = useDispatch();
   const router = useRouter();
   const { user } = useAuth();
@@ -35,7 +36,7 @@ export default function Cart() {
       <div className="max-w-[800px] m-auto space-y-5">
         {cartItems.map((item: any) => (
           <div key={item.id} className="bg-white shadow-lg rounded-md p-4 flex justify-between items-center">
-            <img src={item.images[1]} className="md:w-[100px] w-16 md:h-[120px] rounded-md" alt={item.name} />
+            <Image src={item.images[1]} width={100} height={120} className="md:w-[100px] w-16 md:h-[120px] rounded-md" alt={item.name} />
 
             <div className="flex flex-col gap-1">
               <p className="md:text-xl text-sm">Name: <span className="font-bold">{item.name}</span></p>

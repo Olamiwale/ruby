@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import api from "@/app/lib/api/api.js";
 import { useAuth } from "../auth/AuthContext";
+import { RootState } from "@/app/lib/redux/store";
 
 interface CartItem {
   id: string;
@@ -13,12 +15,6 @@ interface CartItem {
   quantity: number;
   size?: string;
   color?: string;
-}
-
-interface RootState {
-  cart: {
-    cartItems: CartItem[];
-  };
 }
 
 export default function Checkout() {
@@ -85,12 +81,14 @@ export default function Checkout() {
       }
 
       window.location.href = paystackUrl;
-    } catch (err: any) {
-      console.error("Payment error:", err?.response?.data);
-      const message: string =
-        err?.response?.data?.message ||
-        err?.response?.data?.errors?.[0]?.message ||
-        "Payment initiation failed. Please try again.";
+    } catch (err) {
+      let message = "Payment initiation failed. Please try again.";
+      if (axios.isAxiosError(err)) {
+        message = err.response?.data?.message || 
+                  err.response?.data?.errors?.[0]?.message || 
+                  message;
+      }
+      console.error("Payment error:", message);
       setServerError(message);
     } finally {
       setLoading(false);

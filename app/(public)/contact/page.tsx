@@ -1,5 +1,8 @@
 "use client";
 
+import Image from "next/image";
+import contactImage from "@/app/assets/image_003.webp";
+
 import { useState } from "react";
 
 interface FormData {
@@ -32,8 +35,8 @@ export default function Contact() {
 
         {/* Left panel */}
         <div className="w-full md:w-1/2 bg-gray-400 flex flex-col items-center justify-center">
-          <img
-            src="./image_003.webp"
+          <Image
+            src={contactImage}
             alt="Contact us"
             className="mb-6 w-full object-cover"
           />

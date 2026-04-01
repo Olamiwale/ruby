@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import axios from "axios";
 import api from "@/app/lib/api/api.js";
 import { useAuth } from "@/app/features/auth/AuthContext";
 
@@ -25,8 +26,8 @@ export default function SignIn() {
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.currentTarget;
     setForm((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
@@ -50,11 +51,13 @@ export default function SignIn() {
 
       login(res.data.data.user, res.data.data.accessToken);
       router.push(from);
-    } catch (err: any) {
-      const message =
-        err.response?.status === 401
+    } catch (err) {
+      let message = "Login failed. Please try again.";
+      if (axios.isAxiosError(err)) {
+        message = err.response?.status === 401
           ? "Invalid email or password"
           : err.response?.data?.message || "Login failed. Please try again.";
+      }
       setServerError(message);
     } finally {
       setLoading(false);

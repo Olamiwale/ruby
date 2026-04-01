@@ -1,7 +1,11 @@
+import Image from "next/image";
+import aboutImage from "@/app/assets/aboutMe.webp";
+
 export default function About() {
   return (
     <div className="bg-white">
-     
+      <Image src={aboutImage} alt="Ruby" className="rounded-lg shadow-xl max-w-lg w-full object-cover" />
+
       <div className="bg-wine text-white py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-6 md:px-8 text-center  ">
           <h1 className="text-4xl max-sm:text-2xl md:text-5xl font-bold tracking-tight mb-4">
@@ -17,8 +21,8 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-20">
         <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
           <div className="w-full md:w-2/3 flex justify-center">
-            <img
-              src="./aboutMe.webp"
+            <Image
+              src={aboutImage}
               alt="Ruby"
               className="rounded-lg shadow-xl max-w-lg w-full object-cover"
             />
@@ -28,7 +32,7 @@ export default function About() {
             <h2 className="text-3xl font-bold mb-6">Meet Ruby</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                I'm Ruby, the founder and creative mind behind Millennial Apparel By Ruby.
+                I&apos;m Ruby, the founder and creative mind behind Millennial Apparel By Ruby.
               </p>
               <p>
                 With a background in fashion and a lifelong passion for design, I created 
@@ -38,7 +42,7 @@ export default function About() {
               </p>
               <p>
                 MapbyRuby was born from the belief that fashion should feel personal, 
-                inspiring, and accessible whether you're dressing for everyday moments 
+                inspiring, and accessible whether you&apos;re dressing for everyday moments 
                 or unforgettable occasions.
               </p>
             </div>
@@ -80,7 +84,7 @@ export default function About() {
               touches, and silhouettes that celebrate women of all ages and styles.
             </p>
             <p>
-              Whether you're shopping for something subtle or bold, casual or luxurious, 
+              Whether you&apos;re shopping for something subtle or bold, casual or luxurious, 
               MapbyRuby is designed to meet you where you are.
             </p>
           </div>
@@ -103,7 +107,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-6 md:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Have questions or feedback? We'd love to hear from you.
+            Have questions or feedback? We&apos;d love to hear from you.
           </p>
           <div className="space-y-3 text-gray-700">
             <p className="flex items-center justify-center gap-2">

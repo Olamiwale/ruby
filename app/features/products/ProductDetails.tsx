@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from \"react\";
 import { useParams } from "next/navigation";
-import slugify from "@/app/lib/utils/slugify";
+import slugify from \"@/app/lib/utils/slugify\";\nimport Image from \"next/image\";\nimport Link from \"next/link\";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/app/lib/redux/actions";
 import Data from "@/app/data/products.json";
@@ -22,33 +22,27 @@ interface Product {
 export default function ProductDetails() {
   const params = useParams();
   const slug = params?.slug as string;
+  const dispatch = useDispatch();
 
-  const [product, setProduct] = useState<Product | null>(null);
+  // Find product using memoization
+  const product = useMemo(
+    () => (Data as Product[]).find((item) => slugify(item.name) === slug) ?? null,
+    [slug]
+  );
+
+  // Derive colors from product
+  const colors: string[] = product?.color || (product?.col ? [product.col] : []);
+
+  // Initialize state
   const [mainImage, setMainImage] = useState<string>("");
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(1);
-  const [selectedColor, setColor] = useState<string>("");
+  const [selectedColor, setColor] = useState<string>(() => colors[0] ?? "");
 
-  const dispatch = useDispatch();
-
-  // Fetch product by slug
+  // Update mainImage when product changes
   useEffect(() => {
-    const found = (Data as Product[]).find((item) => slugify(item.name) === slug);
-    if (found) {
-      setProduct(found);
-      setMainImage(found.images[0]);
-    }
-  }, [slug]);
-
-  // Set default color once product is loaded
-  useEffect(() => {
-    if (product) {
-      const colors = product.color || (product.col ? [product.col] : []);
-      if (colors.length && !selectedColor) {
-        setColor(colors[0]);
-      }
-    }
-  }, [product]);
+    if (product) setMainImage(product.images[0]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [product?.id]);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
@@ -74,8 +68,6 @@ export default function ProductDetails() {
     return <p>Product not found</p>;
   }
 
-  const colors: string[] = product.color || (product.col ? [product.col] : []);
-
   return (
     <div>
       <div className="p-8 mb-8 flex md:flex-row flex-col justify-between pt-[40px] gap-20">
@@ -91,19 +83,23 @@ export default function ProductDetails() {
           <div className="md:ml-4 items-center flex-col-reverse md:flex-row flex justify-center">
             <div className="flex md:flex-col gap-2 md:mr-5 w-fit justify-center mt-5">
               {product.images.map((image, index) => (
-                <img
+                <Image
                   key={index}
                   src={image}
-                  className="w-32 h-32 md:h-[100px] md:w-40 lg:w-32 cursor-pointer"
+                  width={130}
+                  height={130}
+                  className="w-32 h-32 md:h-[100px] md:w-40 lg:w-32 cursor-pointer object-cover"
                   onClick={() => setMainImage(image)}
                   alt={`Thumbnail ${index + 1}`}
                 />
               ))}
             </div>
             <div>
-              <img
+              <Image
                 src={mainImage}
-                className="lg:w-[500px] lg:h-[550px] md:w-[380px] w-full"
+                width={500}
+                height={550}
+                className="lg:w-[500px] lg:h-[550px] md:w-[380px] w-full object-cover"
                 alt={product.name}
               />
             </div>
@@ -175,12 +171,12 @@ export default function ProductDetails() {
 
             {/* Custom measurement */}
             <div className="mt-16 flex items-center mb-10">
-              <a
+              <Link
                 href="https://wa.me/+2347072971284?text= Welcome to MapbyRuby. Where we value creativity, quality, and self-expression."
                 className="text-white text-sm tracking-widest font-semibold px-5 p-3 bg-black hover:bg-black/90 rounded-full"
               >
                 Click here
-              </a>
+              </Link>
               <p className="ml-2 font-semibold cursor-pointer text-sm tracking-widest">
                 for custom measurement
               </p>

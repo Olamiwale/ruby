@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import Data from "@/app/data/products.json";
 import slugify from "../../lib/utils/slugify";
 //import { addToCart } from "../redux/actions";
@@ -21,15 +23,17 @@ export default function Shop() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 lg:grid-cols-4 ">
           {Data.slice(0, 8).map((item, id) => (
             <div key={id} className="group relative bg-gray-50 cursor-pointer">
-              <a
+              <Link
                 href={`/product/${slugify(item.name)}`}
                 className="block overflow-hidden rounded-2xl">
-                <img
+                <Image
                   src={item.images[0]}
                   alt={item.name}
+                  width={320}
+                  height={320}
                   className="h-[320px] w-full object-cover transition duration-500 ease-in-out group-hover:scale-105"
                 />
-              </a>
+              </Link>
 
               <div className="mt-4 space-y-1">
                 <h3 className="text-sm font-medium text-gray-900 group-hover:underline">
@@ -47,11 +51,11 @@ export default function Shop() {
         </div>
 
         <div className="mt-16 flex justify-center">
-          <a
+          <Link
             href="/product"
             className="inline-block rounded-full bg-black px-8 py-3 text-sm font-semibold uppercase tracking-widest text-white transition hover:bg-gray-800 hover:scale-105">
             Shop the Collection
-          </a>
+          </Link>
         </div>
       </div>
     </>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 import api from "@/app/lib/api/api.js";
@@ -26,29 +27,31 @@ export default function PaymentCallback() {
   const [countdown, setCountdown] = useState<number>(3);
 
   useEffect(() => {
-    const reference = searchParams.get("reference") || searchParams.get("trxref");
-
-    if (!reference) {
-      setStatus("failed");
-      setError("No payment reference found.");
-      return;
-    }
-
     const verify = async () => {
+      const reference = searchParams.get("reference") || searchParams.get("trxref");
+
+      if (!reference) {
+        setStatus("failed");
+        setError("No payment reference found.");
+        return;
+      }
+
       try {
         const res = await api.get(`/payment/verify/${reference}`);
         setPayment(res.data.data.payment);
         setStatus("success");
         dispatch(clearCart());
-      } catch (err: any) {
-        const message = err?.response?.data?.message || "Payment verification failed.";
+      } catch (err) {
+        let message = "Payment verification failed.";
+        if (axios.isAxiosError(err)) {
+          message = err.response?.data?.message || message;
+        }
         setError(message);
         setStatus("failed");
       }
     };
-
     verify();
-  }, []);
+  }, [searchParams, dispatch]);
 
   // Auto redirect to profile 3 seconds after success
   useEffect(() => {
@@ -65,7 +68,7 @@ export default function PaymentCallback() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [status]);
+  }, [status, router]);
 
   if (status === "verifying") {
     return (

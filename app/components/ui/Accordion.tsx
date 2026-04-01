@@ -6,9 +6,9 @@ import React, { useState } from "react";
 
 
 const Accordion = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const tog = (index: any) => {
+  const tog = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 

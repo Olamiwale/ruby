@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/app/lib/api/api.js";
 
@@ -62,8 +63,12 @@ export default function ResetPassword() {
     try {
       await api.post("/auth/reset-password", { token, password });
       setSuccess(true);
-    } catch (err: any) {
-      setError(err?.response?.data?.message || "Reset failed. The link may have expired.");
+    } catch (err) {
+      let message = "Reset failed. The link may have expired.";
+      if (axios.isAxiosError(err)) {
+        message = err.response?.data?.message || message;
+      }
+      setError(message);
     } finally {
       setLoading(false);
     }

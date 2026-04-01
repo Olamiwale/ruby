@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { useAuth } from "@/app/features/auth/AuthContext";
 import Image from "next/image";
 import logo from "@/app/assets/logo.webp";
+import { RootState } from "@/app/lib/redux/store";
 
 
 
@@ -20,14 +21,14 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const cartItems = useSelector((state: any) => state.cart.cartItems);
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   const { user, logout } = useAuth();
 
   const nav = () => setToggle(!toggle);
 
   useEffect(() => {
-  setMounted(true);
-}, []);
+    setMounted(true); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   async function handleSignOut() {
     await logout();

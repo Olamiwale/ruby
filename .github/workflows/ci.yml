@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"              # caches node_modules between runs
+
+      - run: npm ci                 # faster + stricter than npm install in CI
+
+      - run: npx tsc --noEmit      # TypeScript check
+
+      - run: npm run lint           # ESLint check (if you have it set up)
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_PAYSTACK_KEY: ${{ secrets.NEXT_PUBLIC_PAYSTACK_KEY }}
+       

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import api from "@/app/lib/api/api.js";

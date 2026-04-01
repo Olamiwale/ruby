@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect, useMemo } from \"react\";
+import { useState, useEffect, useMemo } from "react";
 import { useParams } from "next/navigation";
-import slugify from \"@/app/lib/utils/slugify\";\nimport Image from \"next/image\";\nimport Link from \"next/link\";
+import slugify from "@/app/lib/utils/slugify";
+import Image from "next/image";
+import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/app/lib/redux/actions";
 import Data from "@/app/data/products.json";
@@ -53,7 +55,7 @@ export default function ProductDetails() {
     const numericPrice = Number(product!.price.toString().replace(/,/g, ""));
 
     const cartItem = {
-      ...product,
+      ...(product as Required<typeof product>),
       price: numericPrice,
       size: selectedSize,
       quantity,

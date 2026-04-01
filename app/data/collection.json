@@ -1,0 +1,28 @@
+[
+  {
+    "name": "mapbyruby",
+    "image": "/collections/img1.webp"
+  },
+    {
+        "name": "evening gown",
+        "image": "/collections/img2.webp"
+    },
+   
+    {
+        "name": "accessories",
+        "image": "/collections/img4.webp"
+    },
+   
+    {
+        "name": "lace",
+        "image": "/collections/img7.webp"
+    },
+    {
+        "name": "bridal",
+        "image": "/collections/img8.webp"
+    },
+    {
+        "name": "casual",
+        "image": "/collections/img9.webp"
+    }
+]

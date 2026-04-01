@@ -1,0 +1,337 @@
+[
+
+   {
+    "id": "0001",
+    "name": "The Gleam Set",
+    "images": [
+      "../two-piece/glem_set.webp",
+      "../two-piece/glem_set0.webp",
+      "../two-piece/glem_set1.webp",
+      "../two-piece/glem_set2.webp"
+     
+    ],
+    "price": 150000,
+    "category": "two-piece",
+    "color": ["Black", "White"],
+    "description": " "
+  },
+
+   {
+    "id": "0002",
+    "name": "Luxedos Dress",
+    "images": [
+      "../two-piece/luxedos_dress0.webp",
+      "../two-piece/luxedos_dress.webp",
+      "../two-piece/luxedos_dress3.webp"
+     
+    ],
+    "price": 100000,
+    "category": "two-piece",
+    "color": ["White"],
+    "description": " "
+  },
+
+   {
+    "id": "0003",
+    "name": "SBB Set",
+    "images": [
+      "../two-piece/sbb_set.webp",
+      "../two-piece/sbb_set0.webp"
+     
+    ],
+    "price": 150000,
+    "category": "two-piece",
+    "color": ["Black", "White"],
+    "description": " "
+  },
+
+
+   {
+    "id": "001",
+    "name": "TLC Set - 005",
+    "images": [
+      "../two-piece/tlc053.webp",
+      "../two-piece/tlc05.webp",
+      "../two-piece/tlc052.webp"
+     
+    ],
+    "price": 90000,
+    "category": "two-piece",
+    "color": ["Black", "White"],
+    "description": "Two piece mesh top and mikado cut out skirt to show the elegance polka underneath"
+  },
+
+   {
+    "id": "002",
+    "name": "TLC Set - 004",
+    "images": [
+      "../two-piece/401.webp",
+      "../two-piece/402.webp",
+      "../two-piece/401.webp"
+     
+    ],
+    "price": 100000,
+    "category": "two-piece",
+     "color": ["Black", "White"],
+    "description": "Two piece mesh top and mikado cut out skirt to show the elegance polka underneath"
+  },
+
+   {
+    "id": "003",
+    "name": "TLC Set - 003",
+    "images": [
+      "../two-piece/301.webp",
+      "../two-piece/302.webp",
+      "../two-piece/304.webp",
+      "../two-piece/303.webp"
+     
+    ],
+    "price": 120000,
+    "category": "two-piece",
+     "color": ["Black", "White"],
+    "description": "Make a Bold Statement with our Block Black and polka White piece Jacket"
+  },
+
+   {
+    "id": "004",
+    "name": "TLC Set - 002",
+    "images": [
+      "../two-piece/sc202.webp",
+      "../two-piece/sc203.webp",
+      "../two-piece/sc201.webp",
+      "../two-piece/sc204.webp",
+      "../two-piece/sc205.webp"
+     
+    ],
+    "price": 150000,
+    "category": "two-piece",
+     "color": ["Black", "White"],
+    "description": "Black Top and asymmetric skirt built with frails of different sizes of polka to give a radiant an effortless flow"
+  },
+
+   {
+    "id": "005",
+    "name": "TLC Set - 001",
+    "images": [
+      "../two-piece/sc101.webp",
+      "../two-piece/sc102.webp",
+      "../two-piece/sc103.webp",
+      "../two-piece/sc105.webp"
+     
+    ],
+    "price": 180000,
+    "category": "two-piece",
+     "color": ["Black", "White"],
+    "description": "Hand-crafted black and white polka dot dress, made from confident, modern woman"
+  },
+
+  {
+    "id": "006",
+    "name": "Zara Dress",
+    "images": [
+      "../two-piece/zara.webp",
+      "../two-piece/zara.webp",
+      "../two-piece/zara01.webp"
+     
+    ],
+    "price": 150000,
+    "category": "two-piece",
+     "color": ["Black", "White","Red"],
+    "description": "Combination of Aso-oke and mikado fabrics"
+  },
+
+  {
+    "id": "007",
+    "name": "Lady-T Set",
+    "images": [
+      "../adire-asooke/lady_t_set01.webp",
+      "../adire-asooke/lady_t_set03.webp",
+      "../adire-asooke/lady_t_set02.webp"
+    ],
+    "price": 139000,
+    "category": " ",
+     "color": ["Red", "Blue"],
+    "description": "Combination of Aso-oke for top and Skirt"
+  },
+  {
+    "id": "008",
+    "name": "Diva",
+    "images": [
+      "../gown/diva01.webp",
+      "../gown/diva02.webp",
+      "../gown/diva03.webp"
+    ],
+    "price": 109000,
+    "category": "gown",
+    "description": "Combination of Aso-oke and mikado fabrics"
+  },
+
+  {
+    "id": "009",
+    "name": "Oge Set",
+    "images": [
+      "../adire-asooke/oge-set01.webp",
+      "../adire-asooke/oge-set02.webp",
+      "../adire-asooke/oge-set03.webp"
+    ],
+    "price": 95000,
+    "category": "two-piece",
+    "description": "Adire and Aso-oke combined to bring perfect blend"
+  },
+
+  {
+    "id": "010",
+    "name": "Rookie Set",
+    "images": [
+      "../rookie-set/rookie_set01.webp",
+      "../rookie-set/rookie_set05.webp",
+      "../rookie-set/rookie_set02.webp"
+    ],
+    "price": 95000,
+    "category": "two-piece",
+    "description": "Adire and Aso-oke combined to bring perfect blend"
+  },
+
+  {
+    "id": "011",
+    "name": "Isoken Gown",
+    "images": [
+      "../mesh/mesh002.webp",
+      "../mesh/mesh004.webp",
+      "../mesh/mesh005.webp"
+    ],
+    "price": 55000,
+    "category": "gown",
+    "description": "Combination of Aso-oke and mikado fabrics",
+    "quantity": 0,
+    "col": "Red"
+  },
+
+  {
+    "id": "012",
+    "name": "Sophie",
+    "images": [
+      "../sophie/image8880.webp",
+      "../sophie/image8882.webp",
+      "../sophie/image8885.webp"
+    ],
+    "price": 100000,
+    "category": "two-piece",
+    "description": "Combination of mikado fabrics"
+  },
+
+  {
+    "id": "013",
+    "name": "Ava",
+    "images": [
+      "../two-piece/ava01.webp",
+      "../two-piece/ava03.webp",
+      "../two-piece/ava05.webp"
+    ],
+    "price": 98000,
+    "category": "two-piece",
+    "description": "Combination of Aso-oke and mikado fabrics"
+  },
+
+  {
+    "id": "014",
+    "name": "Atike Jumpsuit",
+    "images": [
+      "../jumpsuit/atike05.webp",
+      "../jumpsuit/atike04.webp",
+      "../jumpsuit/atike02.webp"
+    ],
+    "price": 95000,
+    "category": "jumpsuit",
+    "description": "Combination of Aso-oke and mikado fabrics"
+  },
+
+  {
+    "id": "015",
+    "name": "Ashake",
+    "images": [
+      "../gown/ashake02.webp",
+      "../gown/ashake01.webp",
+      "../gown/ashake05.webp"
+    ],
+    "price": 90000,
+    "category": "two-piece",
+    "description": "Combination of Aso-oke and Adire fabrics"
+  },
+
+  {
+    "id": "016",
+    "name": "Ajoke",
+    "images": [
+      "../ajoke/ajoke.webp",
+      "../ajoke/ajoke03.webp",
+      "../ajoke/ajoke04.webp"
+    ],
+    "price": 120000,
+    "category": "gown",
+    "description": "Mikado fabrics"
+  },
+
+  {
+    "id": "017",
+    "name": "Lady Vero",
+    "images": [
+      "../gown/lady-vero02.webp",
+      "../gown/lady-vero03.webp",
+      "../gown/lady-vero04.webp"
+    ],
+    "price": 120000,
+    "category": "gown",
+    "description": "Mikado fabrics"
+  },
+  {
+    "id": "018",
+    "name": "Orchid",
+    "images": [
+      "../gown/orchid01.webp",
+      "../gown/orchid02.webp",
+      "../gown/orchid03.webp"
+    ],
+    "price": 120000,
+    "category": "gown",
+    "description": "Combination of mikado fabrics"
+  },
+
+  {
+    "id": "019",
+    "name": "Red Button",
+    "images": [
+      "../trousers/red_button01.webp",
+      "../trousers/red_button02.webp"
+    ],
+    "price": 100000,
+    "category": "trouser",
+    "description": "Trouser made from aso-oke fabric"
+  },
+
+  {
+    "id": "020",
+    "name": "Ite",
+    "images": [
+      "../trousers/aso-trouser.webp",
+      "../trousers/aso-trouser01.webp",
+      "../trousers/aso-trouser02.webp"
+    ],
+    "price": 100000,
+    "category": "trouser",
+    "description": "Trouser made from aso-oke fabric"
+  },
+
+  {
+    "id": "021",
+    "name": "Sonia Gown",
+    "images": [
+      "../mesh/mesh005.webp",
+      "../mesh/mesh002.webp",
+      "../mesh/mesh004.webp"
+    ],
+    "price": 75000,
+    "category": "gown",
+    "description": "Mesh fabric"
+  }
+]

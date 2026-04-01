@@ -56,7 +56,7 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-8 text-center">What We Create</h2>
           <div className="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed">
             <p>
-              At MapbyRuby, we design and curate women's wear for every mood, moment, 
+              At MapbyRuby, we design and curate women&apos;s wear for every mood, moment, 
               and lifestyle.
             </p>
             <p>
@@ -93,7 +93,7 @@ export default function About() {
           <div className="bg-black text-white p-8 md:p-12 rounded-lg max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
             <p className="leading-relaxed">
-              To become a trusted destination for women's fashion known for originality, 
+              To become a trusted destination for women&apos;s fashion known for originality, 
               refined design, and a seamless shopping experience. Based in Nigeria and 
               serving customers locally, we are proud to contribute to the growing fashion 
               culture at home while staying connected to global trends and inspiration.

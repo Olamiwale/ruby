@@ -42,32 +42,14 @@ export default function ProductDetails() {
   const [selectedColor, setColor] = useState<string>(() => colors[0] ?? "");
 
   // Update mainImage when product changes
-  useEffect(() => {
-    if (product) setMainImage(product.images[0]);
-  }, [product?.id]);
+  // useEffect(() => {
+  //   if (product) setMainImage(product.images[0]);
+  // }, [product?.id]);
 
+ if (!product) {
+    return <p>Product not found</p>;
+  }
 
-
-
-  // const handleAddToCart = () => {
-  //   if (!selectedSize) {
-  //     alert("Please select a size");
-  //     return;
-  //   }
-
-  //   const numericPrice = Number(product!.price.toString().replace(/,/g, ""));
-
-  //   const cartItem = {
-  //     ...(product as Required<typeof product>),
-  //     price: numericPrice,
-  //     size: selectedSize,
-  //     quantity,
-  //     color: selectedColor,
-  //   };
-
-  //   dispatch(addToCart(cartItem));
-  //   alert("Product added to cart!");
-  // };
 
 
 
@@ -91,16 +73,17 @@ export default function ProductDetails() {
     color: selectedColor,
   };
 
-  dispatch(addToCart(cartItem));
+  //dispatch(addToCart(cartItem));
+
   alert("Product added to cart!");
 };
 
 
 
 
-  if (!product) {
-    return <p>Product not found</p>;
-  }
+  // if (!product) {
+  //   return <p>Product not found</p>;
+  // }
 
   return (
     <div>

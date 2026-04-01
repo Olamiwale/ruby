@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import api from "@/app/lib/api/api.js";
-import { useAuth } from "@/components/auth/AuthContext";
+import { useAuth } from "@/app/features/auth/AuthContext";
 
 export default function Checkout() {
   const router = useRouter();

@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { removeFromCart, increaseQuantity, decreaseQuantity } from "@/app/lib/redux/actions";
-import { useAuth } from "@/components/auth/AuthContext";
+import { useAuth } from "@/app/features/auth/AuthContext";
 import { FaTrashCan } from "react-icons/fa6";
 
 export default function Cart() {

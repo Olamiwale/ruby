@@ -1,35 +1,33 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { Provider, useDispatch } from 'react-redux';
-import store from '@/app/lib/redux/store';
+import { useEffect, ReactNode } from "react";
+import { Provider, useDispatch } from "react-redux";
+import store from "@/app/lib/redux/store";
+import { CartItem } from "@/app/lib/redux/cartReducer";
 
-function CartHydrator({ children }) {
+interface Props {
+  children: ReactNode;
+}
+
+function CartHydrator({ children }: Props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Load cart from localStorage after client-side hydration
-    if (typeof window !== 'undefined') {
-      const savedCart = localStorage.getItem('cartItems');
-      if (savedCart) {
-        try {
-          const cartItems = JSON.parse(savedCart);
-          // Dispatch action to restore cart
-          dispatch({
-            type: 'HYDRATE_CART',
-            payload: cartItems,
-          });
-        } catch (e) {
-          console.error('Failed to load cart from localStorage:', e);
-        }
-      }
+    if (typeof window === "undefined") return;
+    const saved = localStorage.getItem("cartItems");
+    if (!saved) return;
+    try {
+      const cartItems: CartItem[] = JSON.parse(saved);
+      dispatch({ type: "HYDRATE_CART", payload: cartItems });
+    } catch (e) {
+      console.error("Failed to load cart from localStorage:", e);
     }
   }, [dispatch]);
 
-  return children;
+  return <>{children}</>;
 }
 
-export default function ReduxProvider({ children }) {
+export default function ReduxProvider({ children }: Props) {
   return (
     <Provider store={store}>
       <CartHydrator>{children}</CartHydrator>

@@ -1,4 +1,5 @@
-import sizeImage from "../assets/mapsc.webp";
+import Image from "next/image";
+import sizeImage from "@/app/assets/mapsc.webp";
 
 export default function Size() {
   return (
@@ -21,7 +22,7 @@ export default function Size() {
       <p className="text-3xl max-sm:text-xl font-bold text-center mb-8">Size Chart</p>
 
       <div className="">
-        <img src="../sc.webp" className="w-[600px] h-[600px] max-sm:h-[400px] max-sm:w-[450px]" />
+        <Image src={sizeImage} alt="Size Chart" width={600} height={600} className="w-[600px] h-[600px] max-sm:h-[400px] max-sm:w-[450px]" />
         <div>
           <p>NB</p>
           <li>The measurement table is a UK size chart format</li>

@@ -1,20 +1,36 @@
-import { useState } from 'react';
+"use client";
 
-export default function Contact () {
-  const [formData, setFormData] = useState({  name: '', email: '',  message: '', });
+import { useState } from "react";
 
-  const handleChange = (e) => { setFormData({ ...formData, [e.target.name]: e.target.value }); };
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
 
-  const handleSubmit = (e) => {  e.preventDefault();  
- };
+export default function Contact() {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
 
- 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // handle form submission
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden md:max-w-4xl m-5 w-full">
-        
-        
+
+        {/* Left panel */}
         <div className="w-full md:w-1/2 bg-gray-400 flex flex-col items-center justify-center">
           <img
             src="./image_003.webp"
@@ -25,7 +41,7 @@ export default function Contact () {
           <p className="text-white mb-6">Follow us on social media</p>
           <div className="flex space-x-4">
             <a href="#" className="text-white hover:text-gray-200 transition-colors">
-              <i className="fab fa-facebook-f"></i> 
+              <i className="fab fa-facebook-f"></i>
             </a>
             <a href="#" className="text-white hover:text-gray-200 transition-colors">
               <i className="fab fa-twitter"></i>
@@ -36,11 +52,13 @@ export default function Contact () {
           </div>
         </div>
 
-      
+        {/* Right panel */}
         <div className="w-full md:w-1/2 p-8">
-          <h1 className="text-xl font-bold mb-6 text-slate-900 text-center uppercase">Contact Us</h1>
+          <h1 className="text-xl font-bold mb-6 text-slate-900 text-center uppercase">
+            Contact Us
+          </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className='text-[12px]'>
+            <div className="text-[12px]">
               <label className="block mb-1 font-medium text-gray-700">Name</label>
               <input
                 type="text"
@@ -52,7 +70,6 @@ export default function Contact () {
                 required
               />
             </div>
-
             <div>
               <label className="block mb-1 font-medium text-gray-700">Email</label>
               <input
@@ -65,7 +82,6 @@ export default function Contact () {
                 required
               />
             </div>
-
             <div>
               <label className="block mb-1 font-medium text-gray-700">Message</label>
               <textarea
@@ -77,7 +93,6 @@ export default function Contact () {
                 required
               />
             </div>
-
             <button
               type="submit"
               className="w-full bg-slate-900 text-white py-2 rounded-md hover:bg-blue-600 transition-colors duration-300 uppercase font-semibold"
@@ -89,6 +104,4 @@ export default function Contact () {
       </div>
     </div>
   );
-};
-
-
+}

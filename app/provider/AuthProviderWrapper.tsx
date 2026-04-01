@@ -1,7 +1,12 @@
-'use client';
+"use client";
 
-import { AuthProvider } from '@/app/features/auth/AuthContext';
+import { ReactNode } from "react";
+import { AuthProvider } from "@/app/features/auth/AuthContext";
 
-export default function AuthProviderWrapper({ children }) {
+interface Props {
+  children: ReactNode;
+}
+
+export default function AuthProviderWrapper({ children }: Props) {
   return <AuthProvider>{children}</AuthProvider>;
 }

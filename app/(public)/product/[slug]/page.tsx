@@ -5,8 +5,8 @@ import { useParams } from "next/navigation";
 import slugify from "../../../lib/utils/slugify";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../lib/redux/actions";
-import Data from "@/app/products.json";
-import MoreProducts from "../../../../components/products/MoreProducts";
+import Data from "@/app/data/products.json";
+import MoreProducts from "@/app/features/products/MoreProducts";
 
 interface Product {
   id: string;

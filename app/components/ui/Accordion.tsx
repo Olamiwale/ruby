@@ -1,10 +1,14 @@
+"use client"
+
 import React, { useState } from "react";
-import Data from "../products.json";
+
+
+
 
 const Accordion = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const tog = (index) => {
+  const tog = (index: any) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 

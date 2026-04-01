@@ -46,25 +46,57 @@ export default function ProductDetails() {
     if (product) setMainImage(product.images[0]); // eslint-disable-line react-hooks/exhaustive-deps
   }, [product?.id]);
 
+
+
+
+  // const handleAddToCart = () => {
+  //   if (!selectedSize) {
+  //     alert("Please select a size");
+  //     return;
+  //   }
+
+  //   const numericPrice = Number(product!.price.toString().replace(/,/g, ""));
+
+  //   const cartItem = {
+  //     ...(product as Required<typeof product>),
+  //     price: numericPrice,
+  //     size: selectedSize,
+  //     quantity,
+  //     color: selectedColor,
+  //   };
+
+  //   dispatch(addToCart(cartItem));
+  //   alert("Product added to cart!");
+  // };
+
+
+
   const handleAddToCart = () => {
-    if (!selectedSize) {
-      alert("Please select a size");
-      return;
-    }
+  if (!product || !product.id) return;
 
-    const numericPrice = Number(product!.price.toString().replace(/,/g, ""));
+  if (!selectedSize) {
+    alert("Please select a size");
+    return;
+  }
 
-    const cartItem = {
-      ...(product as Required<typeof product>),
-      price: numericPrice,
-      size: selectedSize,
-      quantity,
-      color: selectedColor,
-    };
+  const numericPrice = Number(product.price.toString().replace(/,/g, ""));
 
-    dispatch(addToCart(cartItem));
-    alert("Product added to cart!");
+  const cartItem = {
+    id: product.id,
+    name: product.name,
+    images: product.images,
+    price: numericPrice,
+    size: selectedSize,
+    quantity,
+    color: selectedColor,
   };
+
+  dispatch(addToCart(cartItem));
+  alert("Product added to cart!");
+};
+
+
+
 
   if (!product) {
     return <p>Product not found</p>;

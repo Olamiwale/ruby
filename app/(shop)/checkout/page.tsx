@@ -150,13 +150,15 @@ export default function Checkout() {
           </select>
         </div>
 
-        <button
-          onClick={handleSubmit}
-          disabled={loading}
-          className="w-full bg-green-700 text-white px-4 py-3 rounded font-semibold disabled:opacity-50 hover:bg-gray-800 transition-colors"
-        >
-          {loading ? "Processing..." : `Pay ₦${totalAmount.toLocaleString()} with Paystack`}
-        </button>
+       <form onSubmit={handleSubmit}>
+  <button
+    type="submit"
+    disabled={loading}
+    className="w-full bg-green-700 text-white px-4 py-3 rounded font-semibold disabled:opacity-50 hover:bg-gray-800 transition-colors"
+  >
+    {loading ? "Processing..." : `Pay ₦${totalAmount.toLocaleString()} with Paystack`}
+  </button>
+</form>
 
         <p className="text-xs text-center text-gray-400 mt-3">
           You will be redirected to Paystack to complete your payment securely.

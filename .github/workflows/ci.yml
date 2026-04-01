@@ -19,7 +19,7 @@ jobs:
 
       - run: npm ci                 # faster + stricter than npm install in CI
 
-      - run: npx tsc --noEmit      # TypeScript check
+      - run: npx tsc --noEmit       # TypeScript check
 
       - run: npm run lint           # ESLint check (if you have it set up)
 

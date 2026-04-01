@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaXmark, FaCartShopping } from "react-icons/fa6";
 import { useRouter, usePathname } from "next/navigation";
@@ -10,13 +10,9 @@ import Image from "next/image";
 import logo from "@/app/assets/logo.webp";
 import { RootState } from "@/app/lib/redux/store";
 
-
-
-
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [slide, setSlide] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -24,11 +20,14 @@ export default function Navbar() {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   const { user, logout } = useAuth();
 
-  const nav = () => setToggle(!toggle);
+  // Replaces setMounted(true) in useEffect — no setState in effect
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const nav = () => setToggle(!toggle);
 
   async function handleSignOut() {
     await logout();
@@ -61,7 +60,6 @@ export default function Navbar() {
             <div className="md:hidden cursor-pointer flex gap-10">
               {!toggle ? <FaBars onClick={nav} size={20} /> : <FaXmark onClick={nav} size={20} />}
             </div>
-
             <div className="md:block hidden">
               <select className="p-2 rounded-lg text-[10px]">
                 <option>NGN</option>
@@ -92,7 +90,6 @@ export default function Navbar() {
 
               {user ? (
                 <div className="flex items-center gap-3">
-
                   {user.role === "ADMIN" && (
                     <button
                       onClick={() => router.push("/admin")}
@@ -101,19 +98,11 @@ export default function Navbar() {
                       Admin
                     </button>
                   )}
-
-                  <button onClick={() => router.push("/profile")}>
-                    {user.firstName}
-                  </button>
-
-                  <button onClick={handleSignOut}>
-                    Log Out
-                  </button>
+                  <button onClick={() => router.push("/profile")}>{user.firstName}</button>
+                  <button onClick={handleSignOut}>Log Out</button>
                 </div>
               ) : (
-                <button onClick={() => router.push("/signin")}>
-                  Log In
-                </button>
+                <button onClick={() => router.push("/signin")}>Log In</button>
               )}
 
             </div>
@@ -122,7 +111,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {toggle && (
-          <ul className="absolute bg-slate-200 w-full px-10 py-5 left-0 ">
+          <ul className="absolute bg-slate-200 w-full px-10 py-5 left-0">
             <li onClick={() => { nav(); router.push("/"); }}>Home</li>
             <li onClick={() => { nav(); router.push("/product"); }}>Shop</li>
             <li onClick={() => { nav(); router.push("/about"); }}>About</li>
@@ -133,13 +122,12 @@ export default function Navbar() {
         {/* Desktop */}
         <div className="md:flex justify-center hidden">
           <ul className="flex space-x-10 cursor-pointer">
-            <li onClick={() => router.push("/")} className={matchRoute("/") ? "text-slate-400 cursor-pointer" : ""}>Home</li>
-            <li onClick={() => router.push("/product")} className={matchRoute("/product") ? "text-slate-400 cursor-pointer" : ""}>Shop</li>
-            <li onClick={() => router.push("/about")} className={matchRoute("/about") ? "text-slate-400 cursor-pointer" : ""}>About</li>
-            <li onClick={() => router.push("/size")} className={matchRoute("/size") ? "text-slate-400 cursor-pointer" : ""}>Size</li>
+            <li onClick={() => router.push("/")} className={matchRoute("/") ? "text-slate-400" : ""}>Home</li>
+            <li onClick={() => router.push("/product")} className={matchRoute("/product") ? "text-slate-400" : ""}>Shop</li>
+            <li onClick={() => router.push("/about")} className={matchRoute("/about") ? "text-slate-400" : ""}>About</li>
+            <li onClick={() => router.push("/size")} className={matchRoute("/size") ? "text-slate-400" : ""}>Size</li>
           </ul>
         </div>
-
       </div>
     </div>
   );

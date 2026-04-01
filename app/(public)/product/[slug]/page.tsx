@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import slugify from "../../../lib/utils/slugify";
 import { useDispatch } from "react-redux";
@@ -25,49 +25,39 @@ interface Product {
 
 export default function ProductDetailsPage() {
   const { slug } = useParams() as { slug: string };
-  const [product, setProduct] = useState<Product | null>(null);
-  const [mainImage, setMainImage] = useState("");
   const dispatch = useDispatch();
 
+  // Derive product directly — no useEffect needed
+  const product = useMemo<Product | null>(
+    () => (Data as Product[]).find((item) => slugify(item.name) === slug) ?? null,
+    [slug]
+  );
+
+  const colors = product?.color ?? (product?.col ? [product.col] : []);
+
+  const [mainImage, setMainImage] = useState<string>(product?.images[0] ?? "");
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [selectedColor, setColor] = useState("");
-
-  //fetching the products
-  useEffect(() => {
-    const product = Data.find((item) => slugify(item.name) === slug);
-    if (product) {
-      setProduct(product);
-      setMainImage(product.images[0]);
-      const colors = product.color || (product.col ? [product.col] : []);
-      if (colors.length) {
-        setColor(colors[0]);
-      }
-    }
-  }, [slug]);
+  const [selectedColor, setColor] = useState<string>(colors[0] ?? "");
 
   if (!product) {
     return <p>Product not found</p>;
   }
 
-  //add product to the cart
   const handleAddToCart = () => {
     if (!selectedSize) {
       alert("Please select a size");
       return;
     }
-
-    const cartItem = {
+    dispatch(addToCart({
       id: product.id,
       name: product.name,
       price: product.price,
       images: product.images,
       size: selectedSize,
       color: selectedColor,
-      quantity: quantity,
-    };
-
-    dispatch(addToCart(cartItem));
+      quantity,
+    }));
     alert("Product added to cart!");
     setQuantity(1);
     setSelectedSize("");
@@ -76,6 +66,7 @@ export default function ProductDetailsPage() {
   return (
     <div className="pt-[50px]">
       <div className="flex md:flex-row flex-col gap-8 max-w-6xl mx-auto px-4 mb-12">
+
         {/* Left - Image Gallery */}
         <div className="md:w-1/2 flex flex-col gap-3">
           <Image
@@ -111,11 +102,11 @@ export default function ProductDetailsPage() {
             )}
           </div>
 
-          {/* Size selection */}
+          {/* Size */}
           <div>
             <p className="font-semibold mb-2">Size</p>
             <div className="flex flex-wrap gap-2">
-              {(product.sizes || ["xs", "s", "m", "l", "xl", "xxl"]).map((size) => (
+              {(product.sizes ?? ["xs", "s", "m", "l", "xl", "xxl"]).map((size) => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
@@ -131,12 +122,12 @@ export default function ProductDetailsPage() {
             </div>
           </div>
 
-          {/* Color selection */}
-          {(product.color || product.col) && (
+          {/* Color */}
+          {colors.length > 0 && (
             <div>
               <p className="font-semibold mb-2">Color</p>
               <div className="flex flex-wrap gap-2">
-                {(product.color || (product.col ? [product.col] : [])).map((col) => (
+                {colors.map((col) => (
                   <button
                     key={col}
                     onClick={() => setColor(col)}
@@ -157,17 +148,12 @@ export default function ProductDetailsPage() {
           <div>
             <p className="font-semibold mb-2">Quantity</p>
             <div className="flex items-center gap-3">
-              <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-2 border rounded">
-                −
-              </button>
+              <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-2 border rounded">−</button>
               <span className="text-lg font-semibold">{quantity}</span>
-              <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-2 border rounded">
-                +
-              </button>
+              <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-2 border rounded">+</button>
             </div>
           </div>
 
-          {/* Add to Cart */}
           <button
             onClick={handleAddToCart}
             className="w-full bg-black text-white py-3 rounded font-semibold hover:bg-gray-800 transition"
@@ -184,7 +170,6 @@ export default function ProductDetailsPage() {
         </div>
       </div>
 
-      {/* More Products */}
       <MoreProducts />
     </div>
   );

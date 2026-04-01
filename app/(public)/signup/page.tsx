@@ -76,8 +76,8 @@ export default function SignUp() {
       login(res.data.data.user, res.data.data.accessToken);
       router.push(from);
 
-    } catch (err: any) {
-      const message = err.response?.data?.message || "Registration failed. Please try again.";
+    } catch (err: unknown) {
+      const message = (err as { response?: {data?: {message?: string }}}).response?.data?.message || "Registration failed. Please try again.";
       setServerError(message);
     } finally {
       setLoading(false);

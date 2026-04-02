@@ -39,34 +39,35 @@ export default function Product() {
         <div className="flex justify-center">
           <button 
             onClick={() => setFilteredCategory("")}
+
             className={`p-2 mr-4 tracking-widest px-4 rounded text-xs ${!filteredCategory 
-            ? "bg-wine text-white" : "border"}`}>
+            ? "bg-wine text-white bg-[#7a0d20]" : "border "}`}>
              All
           </button>
           
           <button
             onClick={() => setFilteredCategory("gown")}
-            className={`p-2 mr-4 tracking-widest rounded text-xs px-4 ${filteredCategory === "gown" ? "bg-wine text-white"
+            className={`p-2 mr-4 tracking-widest rounded text-xs px-4 ${filteredCategory === "gown" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Gown
           </button>
           <button
             onClick={() => setFilteredCategory("jumpsuit")}
-            className={`p-2 mr-4 tracking-widest rounded text-xs px-4 ${filteredCategory === "jumpsuit" ? "bg-wine text-white"
+            className={`p-2 mr-4 tracking-widest rounded text-xs px-4 ${filteredCategory === "jumpsuit" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Jumpsuit
           </button>
 
           <button
             onClick={() => setFilteredCategory("two-piece")}
-            className={`p-2 mr-4 tracking-widest text-xs rounded px-4 ${filteredCategory === "two-piece" ? "bg-wine text-white"
+            className={`p-2 mr-4 tracking-widest text-xs rounded px-4 ${filteredCategory === "two-piece" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Two Piece
           </button>
 
           <button
             onClick={() => setFilteredCategory("trouser")}
-            className={`p-2 mr-4 tracking-widest text-xs rounded px-4 ${filteredCategory === "trouser" ? "bg-wine text-white"
+            className={`p-2 mr-4 tracking-widest text-xs rounded px-4 ${filteredCategory === "trouser" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Trouser
           </button>

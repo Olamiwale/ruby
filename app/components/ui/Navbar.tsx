@@ -111,7 +111,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {toggle && (
-          <ul className="absolute cursor-pointer bg-slate-200 w-full px-10 py-5 left-0">
+          <ul className="font-bold absolute cursor-pointer bg-slate-200 w-full px-10 py-5 left-0">
             <li onClick={() => { nav(); router.push("/"); }}>Home</li>
             <li onClick={() => { nav(); router.push("/product"); }}>Shop</li>
             <li onClick={() => { nav(); router.push("/about"); }}>About</li>
@@ -121,7 +121,7 @@ export default function Navbar() {
 
         {/* Desktop */}
         <div className="md:flex justify-center hidden">
-          <ul className="flex space-x-10 cursor-pointer">
+          <ul className="flex font-bold space-x-10 cursor-pointer">
             <li onClick={() => router.push("/")} className={matchRoute("/") ? "text-slate-400" : ""}>Home</li>
             <li onClick={() => router.push("/product")} className={matchRoute("/product") ? "text-slate-400" : ""}>Shop</li>
             <li onClick={() => router.push("/about")} className={matchRoute("/about") ? "text-slate-400" : ""}>About</li>

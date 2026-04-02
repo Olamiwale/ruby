@@ -5,8 +5,8 @@ export default function Size() {
   return (
 
     <div>
-       <div className="bg-wine text-white py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 text-center  ">
+       <div className="bg-[#7a0d20]  py-16 md:py-20">
+        <div className="max-w-6xl text-white mx-auto px-6 md:px-8 text-center  ">
           <h1 className="text-4xl max-sm:text-2xl md:text-5xl font-bold tracking-tight mb-4">
             Size Chart
           </h1>

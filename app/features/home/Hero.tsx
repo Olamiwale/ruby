@@ -18,7 +18,6 @@ export default function VideoPlayer() {
   return (
     <>
       <div className="w-full flex max-sm:h-screen justify-center bg-gray-200">
-
         {/* Video 1 */}
         <div className="relative w-1/2 lg:h-[600px] mx-auto">
           <video
@@ -56,18 +55,28 @@ export default function VideoPlayer() {
       </div>
 
       {/* Hero text overlay */}
-      <div className="absolute md:top-[200px] top-[400px] w-full flex items-center justify-center px-4">
+      <div className="absolute md:top-[300px] top-2/5 w-full flex items-center justify-center px-4">
         <div className="bg-white/30 opacity-80 p-10 items-center flex flex-col rounded-md">
-          <h1 className="text-center text-xl md:text-6xl font-extrabold text-black/70 tracking-wider">
-            Discover <span className="text-wine/90">Royal Elegance</span> with
-            <span className="text-wine/90"> Ruby</span>
+
+          <h1 className="text-center text-xl md:text-5xl font-extrabold text-black/70 tracking-wider">
+            Discover <span className="text-[#7a0d20]/90">Royal Elegance</span>
+            with
+            <span className="text-[#7a0d20]/90"> Ruby</span>
           </h1>
           <p className="mt-4 tracking-wider text-sm md:text-xl text-center text-black max-w-xl">
-            Step into luxury with our finest collections and redefine your style with
-            <span className="font-semibold text-wine ml-2">sophistication</span>
+            Step into luxury with our finest collections and redefine your style
+            with
+            <span className="font-semibold text-[#7a0d20] ml-2">
+              sophistication
+            </span>
           </p>
         </div>
       </div>
+
+
+      {/* <div className="bg-red-500 absolute left-0 md:top-2/3 top-3/4 w-2/3 flex items-center right-0 mx-auto justify-center">
+<p>testing</p>
+      </div> */}
     </>
   );
 }

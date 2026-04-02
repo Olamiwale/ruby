@@ -47,11 +47,11 @@ export default function Navbar() {
   return (
     <div className={slide
       ? "sticky top-0 shadow-xl bg-white z-50"
-      : "hidden"
+      : ""
     }>
       <div className="flex bg-[#7a0d20] justify-center p-3" />
 
-      <div className="container mx-auto px-10 pb-5 md:px-20">
+      <div className="container mx-auto px-10 md:pb-5  md:px-20">
         <div className="flex justify-between items-center">
 
           {/* Left */}
@@ -110,7 +110,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {toggle && (
-          <ul className="font-bold absolute cursor-pointer bg-slate-200 w-full px-10 py-5 left-0">
+          <ul className="font-semibold absolute cursor-pointer bg-slate-200 w-full px-10 py-5 left-0">
             <li onClick={() => { nav(); router.push("/"); }}>Home</li>
             <li onClick={() => { nav(); router.push("/product"); }}>Shop</li>
             <li onClick={() => { nav(); router.push("/about"); }}>About</li>
@@ -120,7 +120,7 @@ export default function Navbar() {
 
         {/* Desktop */}
         <div className="md:flex justify-center hidden">
-          <ul className="flex font-bold space-x-10 cursor-pointer">
+          <ul className="flex font-semibold space-x-10 cursor-pointer">
             <li onClick={() => router.push("/")} className={matchRoute("/") ? "text-slate-400" : ""}>Home</li>
             <li onClick={() => router.push("/product")} className={matchRoute("/product") ? "text-slate-400" : ""}>Shop</li>
             <li onClick={() => router.push("/about")} className={matchRoute("/about") ? "text-slate-400" : ""}>About</li>

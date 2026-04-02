@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Map by Ruby",
+  title: "Millennial Apparel",
   description: "Your fashion destination",
 };
 

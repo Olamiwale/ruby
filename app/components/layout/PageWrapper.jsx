@@ -38,10 +38,10 @@ export default function PageWrapper({ children }) {
           rel="noopener noreferrer"
           className="flex items-center space-x-5 group"
         >
-          <Image src="/whatsapp.webp" alt="WhatsApp" width={16} height={16} className="w-4" />
-          <p className="hidden group-hover:flex duration-500 text-black transition-all group-hover:translate-x-0">
+          <Image src="/whatsapp.webp" alt="WhatsApp" width={18} height={18} className="w-4" />
+          {/* <p className="hidden group-hover:flex duration-500 text-black transition-all group-hover:translate-x-0">
             How Can We Help You
-          </p>
+          </p> */}
         </Link>
       </div>
 
@@ -53,7 +53,7 @@ export default function PageWrapper({ children }) {
           rel="noopener noreferrer"
           className="flex items-center space-x-5 group"
         >
-          <Image src="/instagram.webp" alt="Instagram" width={16} height={16} className="w-4" />
+          <Image src="/instagram.webp" alt="Instagram" width={18} height={18} className="w-4" />
         </Link>
       </div>
     </div>

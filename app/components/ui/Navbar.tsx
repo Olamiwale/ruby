@@ -111,7 +111,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {toggle && (
-          <ul className="absolute bg-slate-200 w-full px-10 py-5 left-0">
+          <ul className="absolute cursor-pointer bg-slate-200 w-full px-10 py-5 left-0">
             <li onClick={() => { nav(); router.push("/"); }}>Home</li>
             <li onClick={() => { nav(); router.push("/product"); }}>Shop</li>
             <li onClick={() => { nav(); router.push("/about"); }}>About</li>

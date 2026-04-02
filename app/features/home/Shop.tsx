@@ -32,6 +32,8 @@ export default function Shop() {
                   width={320}
                   height={320}
                   className="h-[320px] w-full object-cover transition duration-500 ease-in-out group-hover:scale-105"
+                  //loading="eager"
+                  priority={id === 0}
                 />
               </Link>
 

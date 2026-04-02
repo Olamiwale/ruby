@@ -4,10 +4,11 @@
     "id": "0001",
     "name": "The Gleam Set",
     "images": [
-      "../two-piece/glem_set.webp",
-      "../two-piece/glem_set0.webp",
-      "../two-piece/glem_set1.webp",
-      "../two-piece/glem_set2.webp"
+      "/two-piece/glem_set.webp",
+      "/two-piece/glem_set0.webp",
+      "/two-piece/glem_set1.webp",
+      "/two-piece/glem_set2.webp"
+      
      
     ],
     "price": 150000,
@@ -20,9 +21,9 @@
     "id": "0002",
     "name": "Luxedos Dress",
     "images": [
-      "../two-piece/luxedos_dress0.webp",
-      "../two-piece/luxedos_dress.webp",
-      "../two-piece/luxedos_dress3.webp"
+      "/two-piece/luxedos_dress0.webp",
+      "/two-piece/luxedos_dress.webp",
+      "/two-piece/luxedos_dress3.webp"
      
     ],
     "price": 100000,
@@ -35,8 +36,8 @@
     "id": "0003",
     "name": "SBB Set",
     "images": [
-      "../two-piece/sbb_set.webp",
-      "../two-piece/sbb_set0.webp"
+      "/two-piece/sbb_set.webp",
+      "/two-piece/sbb_set0.webp"
      
     ],
     "price": 150000,
@@ -50,9 +51,9 @@
     "id": "001",
     "name": "TLC Set - 005",
     "images": [
-      "../two-piece/tlc053.webp",
-      "../two-piece/tlc05.webp",
-      "../two-piece/tlc052.webp"
+      "/two-piece/tlc053.webp",
+      "/two-piece/tlc05.webp",
+      "/two-piece/tlc052.webp"
      
     ],
     "price": 90000,
@@ -65,9 +66,9 @@
     "id": "002",
     "name": "TLC Set - 004",
     "images": [
-      "../two-piece/401.webp",
-      "../two-piece/402.webp",
-      "../two-piece/401.webp"
+      "/two-piece/401.webp",
+      "/two-piece/402.webp",
+      "/two-piece/401.webp"
      
     ],
     "price": 100000,
@@ -80,10 +81,10 @@
     "id": "003",
     "name": "TLC Set - 003",
     "images": [
-      "../two-piece/301.webp",
-      "../two-piece/302.webp",
-      "../two-piece/304.webp",
-      "../two-piece/303.webp"
+      "/two-piece/301.webp",
+      "/two-piece/302.webp",
+      "/two-piece/304.webp",
+      "/two-piece/303.webp"
      
     ],
     "price": 120000,
@@ -96,11 +97,11 @@
     "id": "004",
     "name": "TLC Set - 002",
     "images": [
-      "../two-piece/sc202.webp",
-      "../two-piece/sc203.webp",
-      "../two-piece/sc201.webp",
-      "../two-piece/sc204.webp",
-      "../two-piece/sc205.webp"
+      "/two-piece/sc202.webp",
+      "/two-piece/sc203.webp",
+      "/two-piece/sc201.webp",
+      "/two-piece/sc204.webp",
+      "/two-piece/sc205.webp"
      
     ],
     "price": 150000,
@@ -113,10 +114,10 @@
     "id": "005",
     "name": "TLC Set - 001",
     "images": [
-      "../two-piece/sc101.webp",
-      "../two-piece/sc102.webp",
-      "../two-piece/sc103.webp",
-      "../two-piece/sc105.webp"
+      "/two-piece/sc101.webp",
+      "/two-piece/sc102.webp",
+      "/two-piece/sc103.webp",
+      "/two-piece/sc105.webp"
      
     ],
     "price": 180000,
@@ -129,9 +130,9 @@
     "id": "006",
     "name": "Zara Dress",
     "images": [
-      "../two-piece/zara.webp",
-      "../two-piece/zara.webp",
-      "../two-piece/zara01.webp"
+      "/two-piece/zara.webp",
+      "/two-piece/zara.webp",
+      "/two-piece/zara01.webp"
      
     ],
     "price": 150000,
@@ -144,9 +145,9 @@
     "id": "007",
     "name": "Lady-T Set",
     "images": [
-      "../adire-asooke/lady_t_set01.webp",
-      "../adire-asooke/lady_t_set03.webp",
-      "../adire-asooke/lady_t_set02.webp"
+      "/adire-asooke/lady_t_set01.webp",
+      "/adire-asooke/lady_t_set03.webp",
+      "/adire-asooke/lady_t_set02.webp"
     ],
     "price": 139000,
     "category": " ",
@@ -157,9 +158,9 @@
     "id": "008",
     "name": "Diva",
     "images": [
-      "../gown/diva01.webp",
-      "../gown/diva02.webp",
-      "../gown/diva03.webp"
+      "/gown/diva01.webp",
+      "/gown/diva02.webp",
+      "/gown/diva03.webp"
     ],
     "price": 109000,
     "category": "gown",
@@ -170,9 +171,9 @@
     "id": "009",
     "name": "Oge Set",
     "images": [
-      "../adire-asooke/oge-set01.webp",
-      "../adire-asooke/oge-set02.webp",
-      "../adire-asooke/oge-set03.webp"
+      "/adire-asooke/oge-set01.webp",
+      "/adire-asooke/oge-set02.webp",
+      "/adire-asooke/oge-set03.webp"
     ],
     "price": 95000,
     "category": "two-piece",
@@ -183,9 +184,9 @@
     "id": "010",
     "name": "Rookie Set",
     "images": [
-      "../rookie-set/rookie_set01.webp",
-      "../rookie-set/rookie_set05.webp",
-      "../rookie-set/rookie_set02.webp"
+      "/rookie-set/rookie_set01.webp",
+      "/rookie-set/rookie_set05.webp",
+      "/rookie-set/rookie_set02.webp"
     ],
     "price": 95000,
     "category": "two-piece",
@@ -196,9 +197,9 @@
     "id": "011",
     "name": "Isoken Gown",
     "images": [
-      "../mesh/mesh002.webp",
-      "../mesh/mesh004.webp",
-      "../mesh/mesh005.webp"
+      "/mesh/mesh002.webp",
+      "/mesh/mesh004.webp",
+      "/mesh/mesh005.webp"
     ],
     "price": 55000,
     "category": "gown",
@@ -211,9 +212,9 @@
     "id": "012",
     "name": "Sophie",
     "images": [
-      "../sophie/image8880.webp",
-      "../sophie/image8882.webp",
-      "../sophie/image8885.webp"
+      "/sophie/image8880.webp",
+      "/sophie/image8882.webp",
+      "/sophie/image8885.webp"
     ],
     "price": 100000,
     "category": "two-piece",
@@ -224,9 +225,9 @@
     "id": "013",
     "name": "Ava",
     "images": [
-      "../two-piece/ava01.webp",
-      "../two-piece/ava03.webp",
-      "../two-piece/ava05.webp"
+      "/two-piece/ava01.webp",
+      "/two-piece/ava03.webp",
+      "/two-piece/ava05.webp"
     ],
     "price": 98000,
     "category": "two-piece",
@@ -237,9 +238,9 @@
     "id": "014",
     "name": "Atike Jumpsuit",
     "images": [
-      "../jumpsuit/atike05.webp",
-      "../jumpsuit/atike04.webp",
-      "../jumpsuit/atike02.webp"
+      "/jumpsuit/atike05.webp",
+      "/jumpsuit/atike04.webp",
+      "/jumpsuit/atike02.webp"
     ],
     "price": 95000,
     "category": "jumpsuit",
@@ -250,9 +251,9 @@
     "id": "015",
     "name": "Ashake",
     "images": [
-      "../gown/ashake02.webp",
-      "../gown/ashake01.webp",
-      "../gown/ashake05.webp"
+      "/gown/ashake02.webp",
+      "/gown/ashake01.webp",
+      "/gown/ashake05.webp"
     ],
     "price": 90000,
     "category": "two-piece",
@@ -263,9 +264,9 @@
     "id": "016",
     "name": "Ajoke",
     "images": [
-      "../ajoke/ajoke.webp",
-      "../ajoke/ajoke03.webp",
-      "../ajoke/ajoke04.webp"
+      "/ajoke/ajoke.webp",
+      "/ajoke/ajoke03.webp",
+      "/ajoke/ajoke04.webp"
     ],
     "price": 120000,
     "category": "gown",
@@ -276,9 +277,9 @@
     "id": "017",
     "name": "Lady Vero",
     "images": [
-      "../gown/lady-vero02.webp",
-      "../gown/lady-vero03.webp",
-      "../gown/lady-vero04.webp"
+      "/gown/lady-vero02.webp",
+      "/gown/lady-vero03.webp",
+      "/gown/lady-vero04.webp"
     ],
     "price": 120000,
     "category": "gown",
@@ -288,9 +289,9 @@
     "id": "018",
     "name": "Orchid",
     "images": [
-      "../gown/orchid01.webp",
-      "../gown/orchid02.webp",
-      "../gown/orchid03.webp"
+      "/gown/orchid01.webp",
+      "/gown/orchid02.webp",
+      "/gown/orchid03.webp"
     ],
     "price": 120000,
     "category": "gown",
@@ -301,8 +302,8 @@
     "id": "019",
     "name": "Red Button",
     "images": [
-      "../trousers/red_button01.webp",
-      "../trousers/red_button02.webp"
+      "/trousers/red_button01.webp",
+      "/trousers/red_button02.webp"
     ],
     "price": 100000,
     "category": "trouser",
@@ -313,9 +314,9 @@
     "id": "020",
     "name": "Ite",
     "images": [
-      "../trousers/aso-trouser.webp",
-      "../trousers/aso-trouser01.webp",
-      "../trousers/aso-trouser02.webp"
+      "/trousers/aso-trouser.webp",
+      "/trousers/aso-trouser01.webp",
+      "/trousers/aso-trouser02.webp"
     ],
     "price": 100000,
     "category": "trouser",
@@ -326,9 +327,9 @@
     "id": "021",
     "name": "Sonia Gown",
     "images": [
-      "../mesh/mesh005.webp",
-      "../mesh/mesh002.webp",
-      "../mesh/mesh004.webp"
+      "/mesh/mesh005.webp",
+      "/mesh/mesh002.webp",
+      "/mesh/mesh004.webp"
     ],
     "price": 75000,
     "category": "gown",

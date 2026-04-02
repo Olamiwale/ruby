@@ -7,10 +7,10 @@ export default function About() {
      
       <div className="bg-[#7a0d20]  py-16 md:py-20">
         <div className="max-w-6xl text-white mx-auto px-6 md:px-8 text-center  ">
-          <h1 className="text-4xl max-sm:text-2xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="text-2xl max-sm:text-2xl md:text-3xl font-bold tracking-tight mb-4">
             About MapbyRuby
           </h1>
-          <p className="text-lg max-sm:text-sm max-w-2xl mx-auto">
+          <p className="text-sm max-sm:text-sm max-w-xl mx-auto">
             Where creativity, elegance, and individuality come together
           </p>
         </div>
@@ -28,18 +28,19 @@ export default function About() {
           </div>
 
           <div className="w-full md:w-2/3">
-            <h2 className="text-3xl font-bold mb-6">Meet Ruby</h2>
+            <h2 className="text-2xl font-bold mb-6">Meet Ruby</h2>
+
             <div className="space-y-4 text-gray-700 leading-relaxed">
-              <p>
+              <p className=" text-sm">
                 I&apos;m Ruby, the founder and creative mind behind Millennial Apparel By Ruby.
               </p>
-              <p>
+              <p className=" text-sm">
                 With a background in fashion and a lifelong passion for design, I created 
                 MapbyRuby as a space where creativity, elegance, and individuality come 
                 together. Every piece is guided by a love for beautiful details, confident 
                 silhouettes, and styles that allow women to express themselves effortlessly.
               </p>
-              <p>
+              <p className=" text-sm">
                 MapbyRuby was born from the belief that fashion should feel personal, 
                 inspiring, and accessible whether you&apos;re dressing for everyday moments 
                 or unforgettable occasions.
@@ -52,13 +53,13 @@ export default function About() {
       {/* What We Create Section */}
       <div className="bg-gray-50 py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-6 md:px-8">
-          <h2 className="text-3xl font-bold mb-8 text-center">What We Create</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">What We Create</h2>
           <div className="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed">
-            <p>
+            <p className=" text-sm">
               At MapbyRuby, we design and curate women&apos;s wear for every mood, moment, 
               and lifestyle.
             </p>
-            <p>
+            <p className=" text-sm">
               From refined everyday essentials to statement looks, our collections span 
               across all areas of fashion, bringing together luxury appeal and wearable 
               comfort. We work with a wide range of styles and influences, drawing 
@@ -72,17 +73,17 @@ export default function About() {
       {/* What Sets Us Apart */}
       <div className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-6 md:px-8">
-          <h2 className="text-3xl font-bold mb-8 text-center">What Sets Us Apart</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">What Sets Us Apart</h2>
           <div className="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed mb-12">
-            <p>
+            <p className=" text-sm">
               Creativity and uniqueness are at the heart of everything we do.
             </p>
-            <p>
+            <p className=" text-sm">
               Each design is thoughtfully developed to stand out while remaining elegant, 
               versatile, and flattering. We focus on quality craftsmanship, distinctive 
               touches, and silhouettes that celebrate women of all ages and styles.
             </p>
-            <p>
+            <p className=" text-sm">
               Whether you&apos;re shopping for something subtle or bold, casual or luxurious, 
               MapbyRuby is designed to meet you where you are.
             </p>
@@ -91,7 +92,7 @@ export default function About() {
           {/* Vision Box */}
           <div className="bg-black text-white p-8 md:p-12 rounded-lg max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-            <p className="leading-relaxed">
+            <p className="leading-relaxed  text-sm">
               To become a trusted destination for women&apos;s fashion known for originality, 
               refined design, and a seamless shopping experience. Based in Nigeria and 
               serving customers locally, we are proud to contribute to the growing fashion 

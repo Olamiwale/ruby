@@ -24,7 +24,7 @@ export default function Product() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Shop</h1>
+      <h1 className="text-2xl font-bold text-center mb-8">Shop</h1>
 
      
       <div className="flex md:flex-row flex-col md:space-y-0 space-y-8 justify-between items-center mb-8">
@@ -40,34 +40,34 @@ export default function Product() {
           <button 
             onClick={() => setFilteredCategory("")}
 
-            className={`p-2 mr-4 tracking-widest px-4 rounded text-xs ${!filteredCategory 
+            className={`p-2 mr-4 tracking-widest px-3 rounded  text-[8px] ${!filteredCategory 
             ? "bg-wine text-white bg-[#7a0d20]" : "border "}`}>
              All
           </button>
           
           <button
             onClick={() => setFilteredCategory("gown")}
-            className={`p-2 mr-4 tracking-widest rounded text-xs px-4 ${filteredCategory === "gown" ? "bg-wine text-white bg-[#7a0d20]"
+            className={`p-2 mr-4 tracking-widest rounded  text-[8px] px-4 ${filteredCategory === "gown" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Gown
           </button>
           <button
             onClick={() => setFilteredCategory("jumpsuit")}
-            className={`p-2 mr-4 tracking-widest rounded text-xs px-4 ${filteredCategory === "jumpsuit" ? "bg-wine text-white bg-[#7a0d20]"
+            className={`p-2 mr-4 tracking-widest rounded  text-[8px] px-4 ${filteredCategory === "jumpsuit" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Jumpsuit
           </button>
 
           <button
             onClick={() => setFilteredCategory("two-piece")}
-            className={`p-2 mr-4 tracking-widest text-xs rounded px-4 ${filteredCategory === "two-piece" ? "bg-wine text-white bg-[#7a0d20]"
+            className={`p-2 mr-4 tracking-widest  text-[8px] rounded px-4 ${filteredCategory === "two-piece" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Two Piece
           </button>
 
           <button
             onClick={() => setFilteredCategory("trouser")}
-            className={`p-2 mr-4 tracking-widest text-xs rounded px-4 ${filteredCategory === "trouser" ? "bg-wine text-white bg-[#7a0d20]"
+            className={`p-2 mr-4 tracking-widest  text-[8px] rounded px-4 ${filteredCategory === "trouser" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Trouser
           </button>
@@ -90,7 +90,7 @@ export default function Product() {
               </Link>
              
               <h2 className="font-semibold tracking-widest pb-2">{item.name}</h2>
-              <h2 className="pb-2 text-gray-400 text-sm">{item.description}</h2>
+              <h2 className="pb-2 text-gray-400 text-[8px]">{item.description}</h2>
               <p className="font-semibold tracking-widest"> ₦{Number(item.price).toLocaleString("en-NG")}</p>
         
             </div>

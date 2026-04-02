@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore, useEffect, useState } from "react";
+import { useSyncExternalStore, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaXmark, FaCartShopping } from "react-icons/fa6";
 import { useRouter, usePathname } from "next/navigation";
@@ -12,7 +12,7 @@ import { RootState } from "@/app/lib/redux/store";
 
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  //const [scrolled, setScrolled] = useState(false);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -238,7 +238,7 @@ export default function Navbar() {
                 onClick={() => { nav(); router.push("/profile"); }}
                 className="w-full text-left text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-100 transition-colors"
               >
-                {user.firstName}'s Profile
+                {user.firstName} Profile
               </button>
               <button
                 onClick={async () => { nav(); await handleSignOut(); }}

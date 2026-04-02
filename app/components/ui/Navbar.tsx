@@ -39,16 +39,15 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    const handleSlide = () => setSlide(window.scrollY >= 0);
+    const handleSlide = () => setSlide(window.scrollY >=20);
     window.addEventListener("scroll", handleSlide);
     return () => window.removeEventListener("scroll", handleSlide);
   }, []);
 
   return (
-    <div className={
-      slide
-        ? "sticky top-0 shadow-xl transition-all duration-1000 bg-white z-50"
-        : ""
+    <div className={slide
+      ? "sticky top-0 shadow-xl bg-white z-50"
+      : "hidden"
     }>
       <div className="flex bg-[#7a0d20] justify-center p-3" />
 

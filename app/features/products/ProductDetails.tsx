@@ -63,7 +63,7 @@ export default function ProductDetails() {
     return;
   }
 
-  const numericPrice = Number(product.price.toString().replace(/,/g, ""));
+  //const numericPrice = Number(product.price.toString().replace(/,/g, ""));
 
   // const cartItem = {
   //   id: product.id,

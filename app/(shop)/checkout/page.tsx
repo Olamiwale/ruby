@@ -121,7 +121,7 @@ export default function Checkout() {
             </h3>
           </div>
           <div className="divide-y">
-            {cartItems.map((item: any) => (
+            {cartItems.map((item: CartItem) => (
               <div key={item.id} className="flex justify-between items-center px-4 py-3">
                 <div>
                   <p className="text-sm font-medium">{item.name}</p>
@@ -132,11 +132,19 @@ export default function Checkout() {
                   </p>
                 </div>
                 <p className="text-sm font-semibold">
-                  ₦{(parseFloat(item.price) * parseInt(item.quantity, 10)).toLocaleString()}
+                 {/* ₦{(parseFloat(item.price) * parseInt(item.quantity, 10)).toLocaleString()}*/}
+                 ₦{(
+  (typeof item.price === "string" ? parseFloat(item.price) : item.price) 
+  * item.quantity
+).toLocaleString()}
                 </p>
               </div>
             ))}
           </div>
+
+
+
+
           <div className="flex justify-between items-center px-4 py-3 bg-gray-50 border-t">
             <p className="font-semibold">Total</p>
             <p className="font-bold text-lg">₦{totalAmount.toLocaleString()}</p>

@@ -8,14 +8,14 @@ import api from "@/app/lib/api/api.js";
 import { useAuth } from "../auth/AuthContext";
 import { RootState } from "@/app/lib/redux/store";
 
-interface CartItem {
-  id: string;
-  name: string;
-  price: number | string;
-  quantity: number;
-  size?: string;
-  color?: string;
-}
+// interface CartItem {
+//   id: string;
+//   name: string;
+//   price: number | string;
+//   quantity: number;
+//   size?: string;
+//   color?: string;
+// }
 
 export default function Checkout() {
   const router = useRouter();

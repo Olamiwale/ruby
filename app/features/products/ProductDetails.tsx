@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import slugify from "@/app/lib/utils/slugify";
 import Image from "next/image";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
-import { addToCart } from "@/app/lib/redux/actions";
+
+//import { useDispatch } from "react-redux";
+//import { addToCart } from "@/app/lib/redux/actions";
+
 import Data from "@/app/data/products.json";
 import MoreProducts from "@/app/features/products/MoreProducts";
 import Accordion from "@/app/components/ui/Accordion";
@@ -24,7 +26,7 @@ interface Product {
 export default function ProductDetails() {
   const params = useParams();
   const slug = params?.slug as string;
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   // Find product using memoization
   const product = useMemo(
@@ -63,15 +65,15 @@ export default function ProductDetails() {
 
   const numericPrice = Number(product.price.toString().replace(/,/g, ""));
 
-  const cartItem = {
-    id: product.id,
-    name: product.name,
-    images: product.images,
-    price: numericPrice,
-    size: selectedSize,
-    quantity,
-    color: selectedColor,
-  };
+  // const cartItem = {
+  //   id: product.id,
+  //   name: product.name,
+  //   images: product.images,
+  //   price: numericPrice,
+  //   size: selectedSize,
+  //   quantity,
+  //   color: selectedColor,
+  // };
 
   //dispatch(addToCart(cartItem));
 

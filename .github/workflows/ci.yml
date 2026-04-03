@@ -18,6 +18,8 @@ jobs:
           cache: "npm"              # caches node_modules between runs
 
       - run: npm ci                 # faster + stricter than npm install in CI
+      
+      - run: npm test -- --watchAll=false  # Run tests once (no watch mode)
 
       - run: npx tsc --noEmit       # TypeScript check
 

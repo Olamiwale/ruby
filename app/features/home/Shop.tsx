@@ -12,10 +12,10 @@ export default function Shop() {
     <>
       <div className="bg-white px-6 py-16 lg:px-20">
         <div className="text-center flex justify-center items-center flex-col mb-12">
-          <h2 className="text-md border flex justify-center border-gray-400 w-[200px] p-3 font-bold uppercase tracking-widest text-gray-900">
+          <h2 className="text-sm border flex justify-center border-gray-400 w-[200px] p-3 font-bold uppercase tracking-widest text-gray-900">
             OUR COLLECTIONS
           </h2>
-          <p className="mt-4 text-gray-600 text-sm">
+          <p className="mt-4 text-gray-600 text-[9px] tracking-wide">
             Discover the latest trends and timeless essentials, curated for you.
           </p>
         </div>
@@ -38,12 +38,13 @@ export default function Shop() {
               </Link>
 
               <div className="mt-4 space-y-1">
-                <h3 className="text-sm font-medium text-gray-900 group-hover:underline">
+                <h3 className="text-xs font-medium text-gray-900 group-hover:underline">
                   {item.name}
                 </h3>
-                <p className="text-base font-semibold tracking-wide text-gray-900">
-                  ₦{Number(item.price).toLocaleString("en-NG")}
+                <p className="text-sm font-semibold tracking-wide text-gray-900">
+                  ₦ {Number(item.price).toLocaleString("en-NG")}
                 </p>
+
                 <p className="text-xs text-gray-500 line-clamp-2">
                   {item.description}
                 </p>

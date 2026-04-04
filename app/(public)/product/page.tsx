@@ -40,14 +40,14 @@ export default function Product() {
           <button 
             onClick={() => setFilteredCategory("")}
 
-            className={`p-2 mr-4 tracking-widest px-3 rounded  text-[8px] ${!filteredCategory 
+            className={`p-2 mr-4 tracking-widest px-3 rounded  text-xs ${!filteredCategory 
             ? "bg-wine text-white bg-[#7a0d20]" : "border "}`}>
              All
           </button>
           
           <button
             onClick={() => setFilteredCategory("gown")}
-            className={`p-2 mr-4 tracking-widest rounded  text-[8px] px-4 ${filteredCategory === "gown" ? "bg-wine text-white bg-[#7a0d20]"
+            className={`p-2 mr-4 tracking-widest rounded  text-xs px-4 ${filteredCategory === "gown" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Gown
           </button>
@@ -60,14 +60,14 @@ export default function Product() {
 
           <button
             onClick={() => setFilteredCategory("two-piece")}
-            className={`p-2 mr-4 tracking-widest  text-[8px] rounded px-4 ${filteredCategory === "two-piece" ? "bg-wine text-white bg-[#7a0d20]"
+            className={`p-2 mr-4 tracking-widest  text-xs rounded px-4 ${filteredCategory === "two-piece" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Two Piece
           </button>
 
           <button
             onClick={() => setFilteredCategory("trouser")}
-            className={`p-2 mr-4 tracking-widest  text-[8px] rounded px-4 ${filteredCategory === "trouser" ? "bg-wine text-white bg-[#7a0d20]"
+            className={`p-2 mr-4 tracking-widest  text-xs rounded px-4 ${filteredCategory === "trouser" ? "bg-wine text-white bg-[#7a0d20]"
                 : "border"}`}>
             Trouser
           </button>
@@ -89,9 +89,9 @@ export default function Product() {
                 <Image src={item.images[0]} width={320} height={320} alt={item.name} className="w-full h-[320px] object-cover mb-4 rounded" /> 
               </Link>
              
-              <h2 className="font-semibold tracking-widest pb-2">{item.name}</h2>
-              <h2 className="pb-2 text-gray-400 text-[8px]">{item.description}</h2>
-              <p className="font-semibold tracking-widest"> ₦{Number(item.price).toLocaleString("en-NG")}</p>
+              <p className="font-semibold text-xs tracking-widest pb-2">{item.name}</p>
+              <p className="pb-2 text-gray-400 text-[8px]">{item.description}</p>
+              <p className="font-semibold text-sm tracking-widest"> ₦{Number(item.price).toLocaleString("en-NG")}</p>
         
             </div>
           ))

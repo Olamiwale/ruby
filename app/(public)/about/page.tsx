@@ -109,10 +109,13 @@ export default function About() {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Have questions or feedback? We&apos;d love to hear from you.
           </p>
-          <div className="space-y-3 text-gray-700">
+
+          <div className="space-y-3 text-sm text-gray-700">
+            
             <p className="flex items-center justify-center gap-2">
               <span className="font-semibold">Email:</span> Mapbyruby@gmail.com
             </p>
+
             <p className="flex items-center justify-center gap-2">
               <span className="font-semibold">Phone:</span> +234 707 297 1284
             </p>
@@ -126,8 +129,8 @@ export default function About() {
     
       <div className="py-16 md:py-20 bg-white">
         <div className="max-w-3xl mx-auto px-6 md:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Welcome to MapbyRuby</h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
+          <h2 className="text-2xl font-bold mb-6">Welcome to MapbyRuby</h2>
+          <p className="text-gray-700 text-sm leading-relaxed">
             Thank you for being part of our journey. Explore our collections and 
             discover fashion that is expressive, elevated, and unmistakably Ruby.
           </p>
